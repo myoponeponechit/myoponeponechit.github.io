@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Pass</title>
+</head>
+<body>
+    <h1>Exam Result</h1>
+    <table border="0" cellspacing="8" cellpadding="5">
+    <form name="myform">
+        <tr>
+            <td><label for="c">Turbo C</label></td>
+            <td><input type="number" name="c" id="c" required placeholder="Enter Turbo C Mark" max="100"></td>
+        </tr>
+        <!--<br><br>-->
+        <tr>
+            <td><label for="java">Java</label></td>
+            <td><input type="number" name="java" id="java" required placeholder="Enter Java Mark" max="100"></td>
+        </tr>   
+        <!--<br><br>-->
+        <tr>
+            <td><label for="js">JavaScript</label></td>
+            <td><input type="number" name="js" id="js" required placeholder="Ender JavaScript Mark" max="100"></td>
+        </tr>
+        <!--<br><br>-->
+        <tr>
+            <td colspan="2" align="center"><button type="button" onclick="result()">Result</button></td>
+        </tr>
+    </form>
+    </table> 
+    <script>
+        function result(){
+            //alert("Hello")
+            let c=document.myform.c.value;
+            console.log(c);
+            let java=document.myform.java.value;
+            console.log(java);
+            let js=document.myform.js.value;
+            console.log(js);
+
+            if (c>=50 && java>=50 && js>=50 ){
+                if(c>80 || java>80 || js>80){
+                    document.write('<h1>This student is special pass!</h1>')
+                }else{
+                    document.write('<h1>This student is pass!</h1>')
+                }
+            }else{
+                document.write('<h1>This student is fail!</h1>')
+            }
+        }
+    </script>   
+</body>
+</html>

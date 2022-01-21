@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Array
+        let numberArray=[1,2,3,12,102];
+        console.log(numberArray[4]);
+        console.log(numberArray.length);
+        let stringArray=['h','e','l','l','o'];
+        console.log(stringArray[4]);
+
+        //value of different types
+        let myArray=['h','i',1,2,3,['x','y',332]];
+        console.log(myArray[5][2]);
+
+        //Multi-dimensional Array
+        let multiArray=[[1,2,3],['a','b','c'],['x',123]];
+        console.log(multiArray[2][1]);
+
+        let fruits=[];
+        fruits[0]='Apple';
+        fruits[1]='Orange';
+        fruits[2]='Banana';
+        console.log(fruits);
+        console.log(fruits.length);
+
+        fruits.push('Mango');//This is addind in array lest index
+        console.log(fruits);
+
+        fruits.unshift('Cherry');//This is adding in array first index
+        console.log(fruits);
+
+        fruits.pop();//lest array will delet(pop)
+        console.log(fruits);
+
+        fruits.shift();//first array will delet
+        console.log(fruits);
+
+        fruits.sort();//a to z sorting
+        console.log(fruits);
+
+        fruits.reverse();//z to a sorting
+        console.log(fruits);
+
+        let fruits_str=fruits.toString();//Array to String
+        console.log(fruits_str);
+
+        let fruits_arr=fruits_str.split(',');
+        console.log(fruits_arr);
+
+        let str="Hello World";
+        console.log(str.split());
+        console.log(str.split(''));
+        console.log(str.split(' '));
+
+        let aArray=[1,2,3];
+        let bArray=['a','b','c'];
+        let cArray=aArray.concat(bArray);//Adding two arrays with concat function
+        console.log(cArray);
+        let dArray=[...aArray,...bArray,...cArray];
+        //Adding arrays type of ...arrray1,...array2
+        console.log(dArray);
+    </script>
+</body>
+</html>

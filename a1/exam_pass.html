@@ -40,14 +40,18 @@
             let js=document.myform.js.value;
             console.log(js);
 
-            if (c>=50 && java>=50 && js>=50 ){
-                if(c>80 || java>80 || js>80){
-                    document.write('<h1>This student is special pass!</h1>')
+            if(c<=100 && java<=100 && js<=100){
+                if (c>=50 && java>=50 && js>=50){
+                    if (c>80 || java>80 || js>80){
+                        document.write("<h1>This student is special pass!</h1>");
+                    }else{
+                        document.write("<h1>This student is pass!</h1>");
+                    }
                 }else{
-                    document.write('<h1>This student is pass!</h1>')
+                    document.write("<h1>This student is fail!</h1>");
                 }
             }else{
-                document.write('<h1>This student is fail!</h1>')
+                alert("Please check your mark! Maximum mark is 100 in one subject!");
             }
         }
     </script>   

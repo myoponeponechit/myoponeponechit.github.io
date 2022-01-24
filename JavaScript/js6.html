@@ -26,6 +26,44 @@
         for(let i=1;i<=12;i++){
             document.write(`<h3>${num} x ${i} = ${num*i}</h3>`)
         }
+
+        //Nestat Loop
+
+        for (let k=0;k<5;k++){
+            for(let l=0;l<5;l++){
+                document.write('*');
+            }
+            document.write('<br>');
+
+        }
+
+        for(let m=0;m<5;m++){
+            for (let p=0;p<=m;p++){
+                document.write('*');
+            }
+            document.write('<br>')
+        }
+
+        for(let a=0;a<5;a++){
+            for (let b=5;b>a;b--){
+                document.write('*');
+            }
+            document.write('<br>')
+        }
+
+        let number=1;
+        while(number<0){//(number<10)testing
+            document.write(`<h3>This number is ${number}</h3>`);
+            number+=1;
+        }
+
+        let no=1;
+        do{
+            document.write(`<h3>This is ${no}</h3>`);
+            no+=1;
+        }while(no<0);
+        //while(no<10);testing
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+/*Universal Selector*/
+*{
+    background-color: black;
+}
+/*Tag Selector/Element Selector*/
+p{
+    color: rgb(88, 130, 199);
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    color: blue;
+    /*color:rgb(255,0,0);//0 to 255*/
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+/**/

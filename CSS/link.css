@@ -1,0 +1,24 @@
+*{
+    margin-right: 0px;
+}
+/*Pseudo Selector*/
+a:link{
+    color: red;
+    letter-spacing: 10px;
+}
+a:hover{
+    color: chartreuse;
+}
+a:active{
+    color: darkgoldenrod;
+}
+a:visited{
+    color: rgb(241, 226, 14);
+}
+/*Target*/
+:target{
+    border: 1px solid black;
+    text-indent: 50px;
+    word-spacing: 20px;
+    line-height: 30px;
+}

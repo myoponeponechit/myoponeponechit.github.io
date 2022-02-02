@@ -1,12 +1,10 @@
 /*Universal Selector*/
 *{
     background-color: black;
+    margin: 10px;
+    padding: 5px;
 }
 /*Tag Selector/Element Selector*/
-p{
-    color: rgb(88, 130, 199);
-    font-family: 'Times New Roman', Times, serif;
-}
 h1{
     color: blue;
     /*color:rgb(255,0,0);//0 to 255*/
@@ -14,4 +12,42 @@ h1{
     text-transform: uppercase;
     text-align: center;
 }
-/**/
+/*Attribute Selector*/
+a[target="_blank"]{
+    color: green;
+    text-decoration: none;
+}
+/*ID Selector*/
+#idSelector{
+    color: rgb(88, 130, 199);
+    font-family: 'Times New Roman', Times, serif;
+    text-indent: 50px;
+    line-height: 20px;
+}
+/*Class Selector*/
+.tbSelector{
+    border: black;
+    color: cornsilk;
+}
+.tbSelector th{
+    background-color: rgb(22, 106, 155);
+}
+.tbSelector td{
+    background-color: rgb(17, 154, 233);
+}
+/*Descendent Selector*/
+#desc a{
+    color: red;
+    text-decoration: none;
+}
+#desc{
+    color: blue;
+}
+/*Child Selector*/
+#child>a{
+    color: chartreuse;
+    text-decoration: none;
+}
+#child{
+    color: blue;
+}

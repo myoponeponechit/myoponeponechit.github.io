@@ -51,3 +51,150 @@ a[target="_blank"]{
 #child{
     color: blue;
 }
+/*Border*/
+.borderOne{
+    border: 5px dotted blue;
+    color: honeydew;
+}
+.borderTwo{
+    border-left: 5px solid blue;
+    color: honeydew;
+}
+.borderStyle{
+    color: honeydew;
+    border-style: double;
+}
+.styleEmix{
+    /*border-style: dashed solid double dotted;*/  /*top right bottom left */
+    /*border-style: dashed solid double;*/ /*top left&right bottom*/
+    border-style: double dashed;/*top&bottom left&right*/
+    color: honeydew;
+}
+.borderWidth{
+    border-width: 10px 50px 2px 30px;/*top right bottom left*/
+    border-style: solid;
+    color: honeydew;
+}
+/*Margin*/
+.margin{
+    color: honeydew;
+    /*margin: 50px 100px;*/  /*top&bottom left&right*/
+    margin: 50px 100px 150px;
+    border: 1px solid blue;
+}
+/*Padding*/
+.padding{
+    border: 1px solid blue;
+    padding:50px ;/*top righr bottom left*/
+    color: honeydew;
+}
+/*Layout*/
+.inline{
+    width:200px ;
+    border: 1px solid green;
+    color: honeydew;
+    display: inline-;
+}
+.block{
+    border: 1px solid red;
+    display: inline-block;
+    width: 400px;
+    color: honeydew;
+}
+/*Float*/
+h3{
+    color: blue;
+}
+div p{
+    color: honeydew;
+}
+.floatLeft img{
+    width: 40%;
+    float: left;
+}
+.clear{
+    clear: both;
+}
+.floatRight img{
+    width: 40%;
+    float: right;
+}
+/*Grid Lessons*/
+.gridOne div,.gridTwo div,.gridThree div,.gridFour div,.gridFive div,.gridSix div{
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.gridOne,.gridTwo,.gridThree,.gridFour,.gridFive,.gridSix{
+    display: grid;
+    grid-template-columns: auto auto auto;/*equaly divide*/
+    /*grid-template-columns: 600px 500px auto;*/
+}
+.gridTwo{
+    grid-column-gap: 40px;
+}
+.gridThree{
+    grid-row-gap: 40px;
+}
+.gridFour{
+    grid-gap: 50px;
+}
+.columnAdd{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.rowAdd{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+/*Position-Relative(work from above HTML tag)*/
+.relativeParent{
+    width: 1000px;
+    height:600px ;
+    border: 1px solid red;
+}
+.relative{
+    width: 500px;
+    height: 200px;
+    border: 1px solid yellow;
+    position: relative;
+    top: 100px; 
+    left: 250px;
+}
+/*Position-Absolute(work from document)*/
+.absoluteParent{
+    border: 1px solid green;
+    width:900px ;
+    height: 600px;
+    /*position: relative;*/
+}
+.absolute{
+    width: 500px;
+    height: 400px;
+    border: 1px solid blue;
+    position: absolute;
+    top: 100px;
+    left: 500px;
+}
+/*Position-Fixed(work from document)*/
+.fixed{
+    position: fixed;
+    top: 100px;
+    left: 1200px;
+    color: honeydew;
+}
+/*Font Lessons-Online Font*/
+.onlineFont{
+    font-family: 'Dancing Script', cursive;
+    color: honeydew;
+}
+/*OffLine Font*/
+@font-face {
+    src: url(Lobster/Lobster-Regular.ttf);
+    font-family: Lobster;/*Name that you want*/
+}
+.offlineFont{
+    font-family: Lobster;
+    color: honeydew;
+}

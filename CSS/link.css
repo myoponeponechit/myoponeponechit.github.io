@@ -1,10 +1,26 @@
-*{
-    margin-right: 0px;
+h1{
+    color: cornflowerblue;
+    font-family: 'Times New Roman', Times, serif;
+}
+a{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+    color: cornflowerblue;
+    font-size: 20px;
+}
+div{
+    font-family: 'Times New Roman', Times, serif;
+    color: cornflowerblue;
+    font-size: 15px;
 }
 /*Pseudo Selector*/
 a:link{
     color: red;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
 }
 a:hover{
     color: chartreuse;
@@ -17,8 +33,9 @@ a:visited{
 }
 /*Target*/
 :target{
-    border: 1px solid black;
+    border: 1px solid red;
     text-indent: 50px;
     word-spacing: 20px;
     line-height: 30px;
+    color: black;
 }

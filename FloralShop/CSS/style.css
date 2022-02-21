@@ -1,0 +1,210 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo{
+    width: 120px;
+    height: 80px;
+    padding-left:40px ;
+    margin-top: 10px;
+}
+
+@font-face {
+    font-family: lobster;
+    src: url(../Lobster/Lobster-Regular.ttf);
+}
+.brandName{
+    position: absolute;
+    top: 30px;
+    left: 95px;
+    font-family: lobster;
+    font-size: 20px;
+}
+.brandLogo{
+    display: inline-block;
+}
+.myNav ul{
+    float: right;
+}
+.myNav ul li{
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+.myNav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.myNav ul li a:hover{
+    color:#d40d60;/*#3c9ac1*/
+    letter-spacing: 4px;
+    transition-duration: 0.5s;
+}
+.img{
+    width: 100%;
+    height: 500px;
+}
+.welcome{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+}
+.welcomeText{
+    font-family: lobster;
+    font-weight: unset;
+    padding-bottom: 25px;
+}
+.shopNow{
+   margin-top: 20px;/*position:relative;top:20px;*/
+   padding: 10px 20px;
+   color: #d40d60;
+   border: 1px solid #d40d60;
+   border-radius: 10px;
+}
+.shopNow:hover{
+    color: white;
+    background-color: #d40d60 ;
+}
+.lastestPro{
+    text-align: center;
+    margin-top: 50px;
+}
+.line{
+    width: 120px;
+    border: 2px solid #d40d60;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 50px;
+}
+.product{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    text-align: center;
+    padding-bottom:30px;
+    /*padding-right: 100px;*/
+}
+.product .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+   /* box-shadow: 0px 1px 23px -12px;*/
+}
+.product .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.red{
+    color: red;
+    padding-left: 10px;
+}
+.add{
+    border:1px solid #d40d60;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #d40d60;
+    margin-top: 10px;
+}
+.add:hover{
+    color: black;
+    background-color: white;
+}
+.button{
+   margin:0px 600px;
+   padding: 10px 20px;
+   color: #d40d60;
+   border: 1px solid #d40d60;
+   border-radius: 10px;
+   margin-bottom: 80px;
+}
+.button:hover{
+   color: white;
+    background-color: #d40d60 ;
+}
+/*.rose{
+    width: 100%;
+    height: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+} <img src="images/rose1.jpg" alt="" class="rose">*/
+.about{
+    background-image: url(../images/rose.jpg);
+    width: 100%;
+    height: 250px;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+}
+.divide{
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.about div{
+    margin: auto;
+}
+.packaging{
+    margin-top:80px ;
+    margin-left: 100px;
+}
+.packaging img{
+    width: 50%;
+    float: left;
+    border-radius: 5px;
+    margin-right: 60px;
+}
+.headerPackaging{
+    margin-top: 30px;
+}
+.pk_text p{
+    margin-right: 50px;
+    text-align: justify;
+}
+.clear{
+    clear: both;
+}
+.service{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #e2e7e9;
+    height: 110px;
+}
+.service div p{
+    display: inline-block;
+    margin-left: 20px;
+}
+.serviceFont{
+    font-size: 20px;
+}
+.service div{
+    margin: auto;
+}
+.footer{
+    background-color: #212529;
+    color: gray;
+}
+.footerNav{
+    text-decoration: none;
+    padding: 0px 20px;
+    display: inline-block;
+    padding-top: 50px;
+    color: gray;
+}
+.footer p{
+    padding-top: 20px;
+}
+.icon{
+    display: inline-block;
+    color: gray;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
+

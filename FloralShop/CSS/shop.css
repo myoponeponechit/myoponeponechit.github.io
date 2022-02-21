@@ -1,0 +1,176 @@
+body{
+    background-color:rgb(214, 214, 214);
+}
+.myNav{
+    background-color: honeydew;
+}
+.btn{
+    padding: 10px 20px;
+    color: #d40d60;
+    border: 1px solid #d40d60;
+    border-radius: 10px;
+    margin: 30px 10px;
+    box-align: center;
+}
+.btn:hover{
+    color: white;
+    background-color: #d40d60 ;
+}
+
+
+.product{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    text-align: center;
+    /*padding-right: 100px;*/
+}
+.product .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+   /* box-shadow: 0px 1px 23px -12px;*/
+}
+.product .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.red{
+    color: red;
+    padding-left: 10px;
+}
+#roseCol,#lilyCol,#daisyCol,#orchidCol,#carnationCol,#tulipCol,#discountCol{
+    font-family: lobster;
+    text-align: center;
+    padding-top: 30px;
+}
+.underLine{
+    width: 100px;
+    border: 2px solid #d40d60;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+.up{
+    float: right;
+    color: black;
+    margin-right: 30px;
+    margin-top: -20px;
+}
+.rose{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.rose .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.rose .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.lily{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.lily .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.lily .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.daisy{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.daisy .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.daisy .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.orchid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.orchid .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.orchid .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.carnation{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.carnation .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.carnation .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.tulip{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+}
+.tulip .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.tulip .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+.discount{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    margin: 0px 50px;
+    padding-top: 70px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.discount .imgPro{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:0 10px 25px rgb(0,0,0,0.1);
+}
+.discount .imgPro:hover{
+    box-shadow: 0px 1px 23px -12px;
+}
+
+
+
+

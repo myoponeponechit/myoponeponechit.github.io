@@ -11,7 +11,7 @@ int main(){
             cout<<num<<" is divisible by both.";
         }
         else{
-             if(num%5==0){
+            if(num%5==0){
             cout<<num<<" is only divisible by 5.";
             }
             else cout<<num<<" is only divisible by 3.";

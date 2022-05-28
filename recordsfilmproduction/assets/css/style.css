@@ -1,0 +1,84 @@
+*{
+    font-family: "SourceSanPro_Regular";
+}
+
+.maincolor{
+    color:#FDEC03;
+}
+
+.custom_bgcolor{
+    background-color: #0F1720;
+}
+.smallfont{
+    font-size: 12px;
+}
+
+.carousel-inner .carousel-item img{
+    height: 70vh;
+    object-fit:cover;
+}
+
+.nav-pills .nav-link{
+    color: #3b3c36;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show .nav-link{
+    background-color: #0f1728;
+    color: #FDEC03;
+}
+
+.bg{
+    background-color: #0f17282a;
+    height: 400px;
+}
+
+.card{
+    background-color: #ffffff00;
+}
+
+.ltbackground{
+    background: url("../img/trandbg.png") no-repeat;
+    background-size: cover;
+}
+
+.trandimg:hover{
+    opacity: 0.5;
+}
+
+.card img{
+    border-radius: 10px;
+}
+
+.card i{
+    margin: auto;
+    margin-top: -100px;
+}
+
+.trandbody{
+    margin-top: 50px;
+}
+
+#joinsection{
+    background: url("../img/jointoday.jpg") no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size:cover ;
+    -o-background-size:cover;
+}
+
+.radius{
+    border-radius: 90px;
+}
+
+.avater{
+    width: 60px;
+    height: 60px;
+}
+
+#list li{
+    list-style: none;
+}
+
+.shadow{
+    box-shadow: #0F1720;
+}

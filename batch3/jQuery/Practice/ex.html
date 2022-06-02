@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-1</title>
+    <style>
+        body{
+            margin-top: 150px;
+        }
+        #mydiv{
+            background-color: rgb(152, 189, 177);
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-bottom: 300px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        #name ,#age ,#spouse{
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#married").on("change",function () {
+                $("#spouse").show()
+                $("#br").show()
+            })
+            
+            $("#single").on("change",function () {
+                $("#spouse").hide()
+                $("#br").hide()
+            })
+
+            $("#myform").on("submit",function (){
+                var name = $("#name").val()
+                var age = $("#age").val()
+                var spouse = $("#spouse").val()
+                var relation = $("form :checked").val()
+                if(relation == 1) {
+                    text = `${name} is single. Age is ${age}.`
+                    alert(text)
+                }else {
+                    text = `${name} is married. Age is ${age}. His/Her spouse is ${spouse}.`
+                    alert(text);
+                }
+            })
+            
+        })
+    </script>
+</head>
+<body style="text-align: center;">
+    <div id="mydiv">
+        <form action="" name="myform" id="myform">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <br><br>
+            <input type="number" name="age" id="age" placeholder="Age">
+            <br>
+            <input type="radio" name="rela" id="single" value="1">
+            <label for="single">Single</label>
+            <input type="radio" name="rela" id="married" value="2">
+            <label for="married">Married</label>
+            <br>
+            <input type="text" name="spouse" id="spouse" placeholder="Spouse" style="display: none;">
+            <br id="br" style="display: none;">
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+<body>
+    <h1>Bootstrap Grid</h1>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Container</h2>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 bg-primary text-white p-3">
+                <h2>One</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste inventore nihil amet recusandae at voluptatum fugiat quas ab labore atque provident dolorem numquam soluta distinctio officia, facilis magni fuga.</p>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 bg-success text-white p-3">
+                <h2>Two</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste inventore nihil amet recusandae at voluptatum fugiat quas ab labore atque provident dolorem numquam soluta distinctio officia, facilis magni fuga.</p>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 bg-danger text-white p-3">
+                <h2>Thtee</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iste inventore nihil amet recusandae at voluptatum fugiat quas ab labore atque provident dolorem numquam soluta distinctio officia, facilis magni fuga.</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">  
+                 <h2>Container-Fluid</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 bg-primary text-white order-first">One</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-danger text-white order-xl-1 order-md-1">Two</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 bg-success text-white order-xl-2 order-md-0">Three</div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 bg-dark text-white order-last order-xl-3 order-md-2">Four</div>
+        </div>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

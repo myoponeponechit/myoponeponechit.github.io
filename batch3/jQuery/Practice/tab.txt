@@ -1,0 +1,25 @@
+totalAmount();
+            function totalAmount(i,v) {
+                var ls = localStorage.getItem("cart")
+                if(ls) {
+                    var itemArr = JSON.parse(ls)
+                    //var totalamount = ""
+                    $.each(itemArr,function (i,v) {
+                        //var totalAmount = 0;
+                        var total = v.qty*v.price;
+                       
+                       
+                         console.log(total)
+                    })
+                    if(total != 0) {
+                      var  totalamount = `<tr>
+                                        <td colspan="6" align="center">Total Amount - ${total}</td>
+                                    </tr>`
+                                    total += total;
+                       }
+                    
+                    var itemArrJson = JSON.stringify(itemArr) // to json string
+                    localStorage.setItem("cart",itemArrJson)
+                    $("#totalAmount").html(totalamount);
+                }
+            }

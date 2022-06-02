@@ -1,0 +1,27 @@
+- Level 4
+ - HTML
+ - CSS
+ - JS
+  (website)
+ - C++
+ - mySQL
+ - Python
+
+-Level 3
+ - jq (2 weeks) (dom)
+ - BootStrap (2 weeks) (ui)
+ - Vue (frontend SPA)
+ - SE
+
+ - JavaScript
+  - Syntax (grammer rule)
+  - Condition, Looping, Object
+  - Function, Array
+  - dom
+  - operator
+  - scope
+  - node Object
+  - variable
+  - Events
+
+ - 

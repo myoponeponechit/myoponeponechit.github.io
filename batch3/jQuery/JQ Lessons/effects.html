@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects Lesson</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#hidebtn").on("click",function () {
+                $("p").hide(5000);
+            })
+            $("#showbtn").on("click",function () {
+                $("p").show("fast");
+            })
+
+            $("#togglebtn").on("click",function () {
+                $("p").toggle();
+            })
+
+            $("#fadetobtn").on("click",function () {
+                $("p").fadeTo("slow",0.4);
+            })
+
+            $("#slidedownbtn").on("click",function () {
+                $("p").slideDown("slow");
+            })
+
+            $("#movebtn").on("click",function () {
+                $("#mydiv").animate({
+                    left:'250px'
+                });
+            })
+
+            $("#changing").on("click",function () {
+
+            })
+
+            $("#mybtn").on("click",function () {
+                var h1 = $("h1")
+                if(!h1.hasClass(red)){
+                h1.addClass(red);
+            }
+            })
+        })
+        
+    </script>
+</head>
+<body>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, non ipsam molestias temporibus dolorem earum sit cupiditate doloremque corrupti dolor voluptas velit aliquam vero quia. Velit rerum modi atque corrupti.</p>
+    <p id="myp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente velit in maxime quisquam magnam voluptatem ex temporibus minima, quidem enim a asperiores neque tempore excepturi possimus sit dolorem nam.</p>
+    
+    <h1>Hello JQ Effect</h1>
+
+    <div style="width: 100px;height: 100px;background-color: red;position: relative;" id="mydiv">
+    </div>
+    <button id="hidebtn">hide</button>
+    <button id="showbtn">show</button>
+    <button id="togglebtn">Toggle</button>
+    <button id="fadetobtn">fadeTo</button>
+    <button id="slidedownbtn">SlideDown</button>
+
+    <button id="movebtn">Move</button>
+
+    <button id="changing">Changing</button>
+
+    <button id="mybtn">Add or Remove</button>
+</body>
+</html>

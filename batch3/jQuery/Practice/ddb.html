@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Data Binding</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            var student = [
+                {name:"Mg Mg", age: 22, gender: "male"},
+                {name:"Khing", age: 24, gender: "female"},
+                {name:"Aung", age: 25, gender: "male"},
+                {name:"Yuki", age: 21, gender: "female"},
+                {name:"Su Su", age: 20, gender: "female"},
+                {name:"Mya Mya", age: 32, gender: "female"},
+            ]
+            //console.log(student);
+
+            //var femaleStudent = student.filter(row => row.gender == "female")
+            //console.log(femaleStudent);
+
+            var data = ""
+            $.each(student,function (i,v) {
+            //$.each(femaleStudent,function (i,v) {
+                data += `<tr>
+                            <td>${i+1}</td>
+                            <td>${v.name}</td>
+                            <td>${v.age}</td>
+                            <td>${v.gender}</td>
+                            <td>
+                                <button class="detailbtn" data-id=${i}>datail</button>
+                            </td>                   
+                         </tr>`
+            })
+
+            $("#mytbody1").html(data)
+
+            // detail btn click event
+            $(".detailbtn").on("click",function () {
+                var id = $(this).data("id");
+                //alert(id)
+                //var name = femaleStudent[id].name;
+                var name = student[id].name;
+                //var age = femaleStudent[id].age;
+                var age = student[id].age;
+                //var gender = femaleStudent[id].gender;
+                var gender = student[id].gender;
+                alert(`${name} is ${age} years old, ${gender}`)
+            })
+        })
+    </script>
+</head>
+<body>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="mytbody1">
+
+        </tbody>
+    </table>
+</body>
+</html>

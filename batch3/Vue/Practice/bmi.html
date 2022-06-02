@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculation</title>
+    <style>
+        .bgcolor{
+            background-color: rgba(174, 251, 251, 0.184);
+            width: 30%;
+            margin-left: 450px;
+            margin-top: 50px;
+            padding-top: 30px;
+            padding-left: 80px;
+            padding-bottom: 50px;
+            border-radius: 20px;
+            box-shadow: 3px 5px #2828281b;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    feet:"",
+                    inches:"",
+                    pounds:"",
+                    result:""
+                }
+            },
+            methods:{
+                calculate() {
+                    //alert('ok');
+                    var feet = Number(this.feet);
+                    var inches = Number(this.inches);
+                    var height = (feet*12)+inches;
+                    var weight = Number(this.pounds);
+                    var bmi = (weight*703) / (height*height);
+                    this.result = bmi.toFixed(1);
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id="app" class="bgcolor">
+        <h2>BMI Calculation</h2>
+        <form action="">
+            <label for="">Your Height : </label>
+            <input v-model="feet" size="7" placeholder="feet">
+            <input v-model="inches" size="7" placeholder="inches" style="margin-left: 10px;">
+            <br><br>
+            <label for="">Your Weight : </label>
+            <input v-model="pounds" placeholder="pounds">
+            <br><br>
+            <button type="button" @click="calculate">Calculate</button>
+            <br><br>
+            <label for="">Your BMI : </label>
+            <input v-model="result">
+        </form>
+        <h3 v-if="result < 18.5 && result > 0" style="color: blue;">Your BMI is underweight.</h3>
+
+        <h3 v-else-if="result >= 18.5 && result < 24.9" style="color: green;">Your BMI is normal weight.</h3>
+
+        <h3 v-else-if="result >= 25 && result <= 29.9" style="color: orange;">Your BMI is overweight.</h3>
+
+        <h3 v-else-if="result >= 30" style="color: red;">Your BMI is obesity.</h3>
+    </div>
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
+</body>
+</html>

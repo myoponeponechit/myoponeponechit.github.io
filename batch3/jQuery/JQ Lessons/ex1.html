@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - 1</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#relation").on("change",function () {
+                var relation = $("form :checked").val()
+                if(relation == 1) {
+                    $("#spouse").hide()
+                    $("#br").hide()
+                } else {
+                    $("#spouse").show()
+                    $("#br").show()
+                }
+            })
+
+            $("#myform").on("submit",function (){
+                var name = $("#name").val()
+                var age = $("#age").val()
+                var spouse = $("#spouse").val()
+                var relation = $("form :checked").val()
+                if(relation == 1) {
+                    text = `${name} is single. Age is ${age}.`
+                    alert(text)
+                }else {
+                    text = `${name} is married. Age is ${age}. His/Her spouse is ${spouse}.`
+                    alert(text);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="mydiv">
+        <form action="" name="myform" id="myform">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <br><br>
+            <input type="number" name="age" id="age" placeholder="Age">
+            <div id="relation">
+                <input type="radio" name="rel" id="single" value="1" checked>
+                <label for="single">Single</label>
+                <input type="radio" name="rel" id="married" value="2">
+                <label for="married">Married</label>
+            </div>
+            <input type="text" name="spouse" id="spouse" placeholder="Spouse" style="display: none;">
+            <br id="br" style="display: none;">
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</body>
+</html>

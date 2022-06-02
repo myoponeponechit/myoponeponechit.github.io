@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax lesson</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            //$.ajax({
+            // The URL for the request
+            //url: "https://api.imgflip.com/get_memes",
+            // The data to send (will be converted to a query string)
+            //data: {
+            //id: 123
+            //},
+            // Whether this is a POST or GET request
+            //type: "GET",
+            // The type of data we expect back
+            //dataType : "json",
+            //})
+            
+            // Code to run if the request succeeds (is done);
+            // The response is passed to the function
+            //.done(function( json ) {
+               // console.log(json.data.memes)
+           // })
+
+            //$.get("https://api.imgflip.com/get_memes",function (resp) {
+                //console.log(resp.data.memes)
+            //})
+
+            $.post("https://api.imgflip.com/caption_image", {
+                template_id : "181913649",
+                username : "ponepone" ,
+                password : "882091meme",
+                text0 : "Hi",
+                text1 : "Hello"
+            },function (resp) {
+                //console.log(resp) // sever response
+                if(resp.success == true) {
+                    var img = `<img src="${resp.data.url}">`
+                    $("#content").html(img)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="content"></div>
+</body>
+</html>

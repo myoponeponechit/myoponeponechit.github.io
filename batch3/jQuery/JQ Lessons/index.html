@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ Introduction</title>
+    <!--JQuery-->
+    <script src="jquery.min.js"></script>
+    <!--Custom-->
+    <script src="custom.js"></script>
+    <script>
+        $(document).ready(function() {
+            var h2 = $("h2"); // element
+            console.log(h2);
+
+            var myp = $("#myp"); // ID
+            console.log(myp);
+
+            var artical = $(".detail"); // class
+            console.log(artical);
+
+            var li = $(".contants ul.teacher li");
+            console.log(li);
+
+            $("button").click(function () {
+                alert('ok')
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>Hello World</h2>
+    <h2>Hello JQ!</h2>
+
+    <p id="myp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa impedit sapiente minima fugit hic architecto facilis, ipsa temporibus commodi dignissimos quae odio, explicabo necessitatibus ipsam enim excepturi harum optio cumque quibusdam quaerat, quo velit eaque consequatur? Facere culpa excepturi similique cupiditate illo expedita, voluptatibus quidem repellat ducimus recusandae ipsa officia sunt repudiandae molestiae a. Iste vero corrupti fugit voluptatum cumque, in quidem nulla soluta amet quaerat voluptate et modi accusantium dolores hic voluptas animi architecto cupiditate. Molestias quasi officia repudiandae maxime omnis quam iusto, illo accusantium voluptates eveniet totam rem eaque, dignissimos saepe, molestiae accusamus perferendis eligendi veniam! Dolorem, ipsa?</p>
+    <article class="detail">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi veritatis asperiores excepturi quibusdam nisi. Quas nisi sunt molestiae veritatis nemo esse itaque, quibusdam ratione molestias id illo sint non in?
+    </article>
+    <div class="detail">
+        This is detail.
+    </div>
+
+    <!--#Contents ul.people li-->
+    <div class="contants">
+        <ul class="teacher">
+            <li>Myo</li>
+            <li>Pone</li>
+            <li>Pone</li>
+            <li>Chit</li>
+        </ul>
+        <ul>
+            <li>Park</li>
+            <li>Chanyeol</li>
+        </ul>
+    </div>
+
+    <form action="">
+        <input type="text" disabled readonly> 
+    </form>
+
+    <!--
+        <div></div>
+        <section></section>
+        <article></article>
+    -->
+
+    <button>click</button>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Memes Project</title>
+    <style>
+        body{
+            background-color: rgb(232, 232, 232);
+        }
+       .mytable{
+            margin-left: auto;
+            margin-right: auto;  
+            margin-top: 60px;
+            background-color: white;
+            box-shadow: 10px 10px 5px rgb(116, 116, 116);
+            padding: 20px;
+            }
+
+        #scrolly{
+            width: 250px;
+            height: 80px;
+            overflow: auto;
+            overflow-y: hidden;
+            margin: 0 auto;
+            white-space: nowrap
+        }
+        /* for img */
+        .imgmeme{
+            width: 60px;
+            height: 60px;
+            display: inline;
+        }
+        /* for text */
+        h4{
+            display: inline-block;
+            margin: 0px;
+            padding-left: 10px;
+            padding: auto;
+        }
+        .mynewtext,.mydeftext{
+            margin: 0 px;
+            width: 80%;
+            height: 40px;
+            outline: none;
+            border: 1 solid gray;
+            display: inline-block;
+            padding: 0px;
+            margin-bottom: 8px;
+                
+        }
+        #searchtext{
+            margin-left:20px px;
+            width: 60%;
+            height: 40px;
+            outline: none;
+            border: none;
+            padding: 0px;
+            display: inline-block;
+            background-color:grey;
+
+
+        }
+        .searchbtn{
+            color:white;
+            border:none;
+            position: relative;
+            left: 60px;
+            background-color:grey;
+            display: inline-block;
+        }
+        #searchtext::placeholder{
+            font-size: larger;
+            color: rgb(255, 255, 255);
+
+        }
+        #forsearch{
+            width: 270px;
+            border: 1px solid gray;
+            padding-left: 10px;
+            display: inline-block;
+            background-color:grey;
+            border-radius: 5px;
+            margin: 10px;
+            box-shadow: 3px 3px 5px rgb(116, 116, 116);
+
+
+
+        }
+        /* for btn */
+        #addbtn,#generatebtn{
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            margin-left: auto;
+            margin-right: auto; 
+            background-color:grey;
+            color: white; 
+            box-shadow: 4px 4px 5px rgb(116, 116, 116);
+
+
+        }
+        #logo {
+        position: relative;
+        }
+        #changebtn {
+        background-color:grey;
+        color: white;
+        padding: 20px 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid grey ;
+        border-radius:4px;
+        box-shadow: 3px 3px 3px 3px rgb(255, 255, 255,0.3);
+
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/d471208051.js" crossorigin="anonymous"></script>
+    <script src="jquery.min.js"></script>
+    <script>
+        
+        $(function(){
+            $('#changebtn').on("click",function (event) { 
+                $(".mytable").show();
+                $(".cover").hide();
+                event.preventDefault();
+            })
+            // get meme
+            $.get("https://api.imgflip.com/get_memes",function(resp){
+                var imgArr = resp.data.memes;
+                var imgArrJson = JSON.stringify(imgArr);
+                localStorage.setItem("memes_img",imgArrJson)
+            })
+
+            getdata();
+            function getdata(){
+                var ls = localStorage.getItem("memes_img")
+                if(ls){
+                    var imgArr = JSON.parse(ls)
+                    var data =""
+
+                    $.each(imgArr,function(i,v){
+                        data += `<img src="${v.url}" alt="" data-id="${i}" class="imgmeme">`                   
+                    })
+                    $("#scrolly").html(data)
+                }
+            }
+
+            // clickimgshow
+            var textArr = [
+                {name:"text#1", id: 1, placeholder: "text#3"},
+                {name:"text#2", id: 2, placeholder: "text#4"},
+                {name:"text#3", id: 3, placeholder: "text#5"},   
+            ]
+    
+            $("#scrolly").on("click","img",function(){
+                $(".defalutimg").hide(); 
+                $("#defaultT").hide(); 
+                var index = $(this).data("id")
+                //console.log(index)
+                var ls = localStorage.getItem("memes_img")
+                if(ls){
+                    var imgArr = JSON.parse(ls)
+                    var showurl = imgArr[index].url;
+                    var showTT = imgArr[index].name;
+                    var img =`<img src = "${showurl}" width="350px" data-id="${index}"  class="newimg" height="400px" >`
+                    var tit =`<h4>${showTT}</h4>`
+                    $("#content").html(img) ;            
+                    $(".newTitle").html(tit) ;   
+                    var imgbox =imgArr[index].box_count;
+                    console.log(imgbox)
+                            var data=""
+                    $.each(textArr,function(i,v){ 
+                        data += `<div class="extradiv">
+                                    <input type="text" placeholder="${v.placeholder}" data-id="${v.id}" class="mynewtext">
+                                </div>  `    
+                          
+                        if(imgbox == (i+3)){
+                            return false;
+                        }
+                    }) 
+
+                    if(imgbox == 2){
+                        $("div.extradiv").remove();
+                    }else if(imgbox == 3){
+                        $("div.extradiv").remove();
+                        $('.mytable tr td.mydivnew ').append(data);  
+                    }else if(imgbox == 4){
+                        $("div.extradiv").remove();
+                        $('.mytable tr td.mydivnew ').append(data);  
+                    }else{
+                        $("div.extradiv").remove();
+                        $('.mytable tr td.mydivnew ').append(data);  
+                    }
+                     getdata();
+                }     
+            })            
+            // endimgshow
+            //search
+            $("#forsearch").on("click",".searchbtn",function (){ 
+            $(".defalutimg").hide(); 
+
+            var ls = localStorage.getItem("memes_img")
+            if(ls){
+                var imgArr = JSON.parse(ls)
+                var newurl ;
+                var forid;
+                $.each(imgArr,function(i,v){
+                    if(v.name == $("#searchtext").val() ){
+                        newurl = v.url;
+                        forid = i;
+                        
+                        return false;
+                    } 
+                })   
+            }
+            var img =`<img src = "${newurl}" width="350px" data-id="${forid}"  class="newimg" height="400px" >`
+            $("#content").html(img) ;    
+            getdata();
+        })      
+                        
+            // addbtn
+            $("#mytbody").on("click","#addbtn",function(){   
+                var data=""
+                $.each(textArr,function(i,v){
+                    data += `<div class="extradiv">
+                                <input type="text" placeholder="text#${v.id+2}" data-id="${v.id}" class="mynewtext">
+                            </div>  `  
+                    v.id++;
+                    return false;
+                    if(i = v.id >10){
+                        return false;
+                    }
+            })
+            $('.mytable tr td.mydivnew').append(data);  
+            getdata();
+
+            })
+            //generate btn
+            $("#mytbody").on("click","#generatebtn",function(){   
+                // alert(index)
+                $(".defalutimg").hide(); 
+                var index= $("#content img.newimg").data("id");
+                var ls = localStorage.getItem("memes_img")
+                if(ls){
+                    var imgArr = JSON.parse(ls)
+
+                    $.post( "https://api.imgflip.com/caption_image",{
+                        template_id: imgArr[index].id,
+                        username: "thetpainghtutfly",
+                        password: "thetpainghtutfly",
+                        text0:$("#top").val(),
+                        text1:$("#bottom").val(),
+                    }, function( resp ) { // console.log(resp.data); // server response 
+                        if (resp.success == true){
+                            console.log("hi");
+                            var img = `<img src="${resp.data.url}"  width="350px"  height="400px">`
+                            $("#content").html(img)
+                        }
+                    });
+                    getdata();
+                }
+
+            })
+        })
+              
+    </script>
+</head>
+<body cz-shortcut-listen="true">
+
+    <div class="cover" style="display: none;">
+        <img src="page.jpg" id="logo" width="100%" height="600px" alt="" style="opacity: 0.7;">
+        <button id="changebtn">Click Here</button>
+    </div>
+
+    <table class="mytable" border="0" cellspacing="0">
+        <tbody id="mytbody">
+            <tr>
+                <td rowspan="3">
+                    <div id="content" style="display: inline-block; margin-right: 50px;"><img src="https://i.imgflip.com/6imyh1.jpg" width="350px" height="400px"></div>
+                </td>
+                <td colspan="6"> 
+                <div style="display: inline-block; border:1px solid gray; border-radius:3px">
+                    <div style="display: inline-block; border:1px solid gray; border-radius:3px">
+                        <div id="forsearch">
+                            <input type="text" placeholder="search" id="searchtext">
+                            <button class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                        <div>
+                            <h4 id="defaultT" style="display: none;">Drake Hotline Bling</h4>
+                        </div> 
+                        <div class="newTitle"><h4>Distracted Boyfriend</h4></div>
+                        <hr>
+                    </div>
+                    <div>
+                        <h4 id="defaultT" style="display: none;">Drake Hotline Bling</h4>
+                    </div> 
+                    <div class="newTitle"><h4>Distracted Boyfriend</h4></div>
+                    <hr> 
+                    <div id="scrolly">
+                        <img src="https://i.imgflip.com/30b1gx.jpg" alt="" data-id="0" class="imgmeme">                
+                            
+                        <img src="https://i.imgflip.com/1g8my4.jpg" alt="" data-id="1" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1ur9b0.jpg" alt="" data-id="2" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/261o3j.jpg" alt="" data-id="3" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3lmzyx.jpg" alt="" data-id="4" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/22bdq6.jpg" alt="" data-id="5" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/43a45p.png" alt="" data-id="6" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/24y43o.jpg" alt="" data-id="7" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/26jxvz.jpg" alt="" data-id="8" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3oevdk.jpg" alt="" data-id="9" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2fm6x.jpg" alt="" data-id="10" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/9ehk.jpg" alt="" data-id="11" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/23ls.jpg" alt="" data-id="12" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1c1uej.jpg" alt="" data-id="13" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/28j0te.jpg" alt="" data-id="14" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1jwhww.jpg" alt="" data-id="15" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/345v97.jpg" alt="" data-id="16" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2ybua0.png" alt="" data-id="17" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/m78d.jpg" alt="" data-id="18" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/46e43q.png" alt="" data-id="19" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2gnnjh.jpg" alt="" data-id="20" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3qqcim.png" alt="" data-id="21" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1ihzfe.jpg" alt="" data-id="22" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1otk96.jpg" alt="" data-id="23" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2za3u1.jpg" alt="" data-id="24" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1yxkcp.jpg" alt="" data-id="25" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1tl71a.jpg" alt="" data-id="26" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1b42wl.jpg" alt="" data-id="27" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3l60ph.jpg" alt="" data-id="28" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/gk5el.jpg" alt="" data-id="29" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/38el31.jpg" alt="" data-id="30" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1o00in.jpg" alt="" data-id="31" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1w7ygt.jpg" alt="" data-id="32" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/wxica.jpg" alt="" data-id="33" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bij.jpg" alt="" data-id="34" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/21tqf4.jpg" alt="" data-id="35" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/26am.jpg" alt="" data-id="36" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1h7in3.jpg" alt="" data-id="37" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1wz1x.jpg" alt="" data-id="38" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1nck6k.jpg" alt="" data-id="39" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2kbn1e.jpg" alt="" data-id="40" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/grr.jpg" alt="" data-id="41" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2896ro.jpg" alt="" data-id="42" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/28s2gu.jpg" alt="" data-id="43" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2wifvo.jpg" alt="" data-id="44" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/gtj5t.jpg" alt="" data-id="45" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/4acd7j.png" alt="" data-id="46" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2odckz.jpg" alt="" data-id="47" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1e7ql7.jpg" alt="" data-id="48" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/265k.jpg" alt="" data-id="49" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/21uy0f.jpg" alt="" data-id="50" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/392xtu.jpg" alt="" data-id="51" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3pnmg.jpg" alt="" data-id="52" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/271ps6.jpg" alt="" data-id="53" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bhw.jpg" alt="" data-id="54" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bhk.jpg" alt="" data-id="55" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bgw.jpg" alt="" data-id="56" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/39t1o.jpg" alt="" data-id="57" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/4t0m5.jpg" alt="" data-id="58" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1ii4oc.jpg" alt="" data-id="59" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/9vct.jpg" alt="" data-id="60" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/8k0sa.jpg" alt="" data-id="61" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bh8.jpg" alt="" data-id="62" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3i7p.jpg" alt="" data-id="63" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/c2qn.jpg" alt="" data-id="64" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bhm.jpg" alt="" data-id="65" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/hmt3v.jpg" alt="" data-id="66" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3vzej.jpg" alt="" data-id="67" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2cp1.jpg" alt="" data-id="68" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1x6f.jpg" alt="" data-id="69" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/3si4.jpg" alt="" data-id="70" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bhf.jpg" alt="" data-id="71" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/tau4.jpg" alt="" data-id="72" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/26hg.jpg" alt="" data-id="73" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/cv1y0.jpg" alt="" data-id="74" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/265j.jpg" alt="" data-id="75" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/26br.jpg" alt="" data-id="76" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/4xgqu.jpg" alt="" data-id="77" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/emccr.jpg" alt="" data-id="78" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bip.jpg" alt="" data-id="79" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1ooaki.jpg" alt="" data-id="80" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/hlmst.jpg" alt="" data-id="81" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2hgfw.jpg" alt="" data-id="82" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/64ku.jpg" alt="" data-id="83" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bh9.jpg" alt="" data-id="84" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/9sw43.jpg" alt="" data-id="85" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/govs4.jpg" alt="" data-id="86" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/2d3al6.jpg" alt="" data-id="87" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bik.jpg" alt="" data-id="88" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/jrj7.jpg" alt="" data-id="89" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/49z6c.jpg" alt="" data-id="90" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/9iz9.jpg" alt="" data-id="91" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/16iyn1.jpg" alt="" data-id="92" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bh3.jpg" alt="" data-id="93" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/7bk2.jpg" alt="" data-id="94" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/pry7.jpg" alt="" data-id="95" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/1bim.jpg" alt="" data-id="96" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/odluv.jpg" alt="" data-id="97" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/8p0a.jpg" alt="" data-id="98" class="imgmeme">               
+                            
+                        <img src="https://i.imgflip.com/qep4.jpg" alt="" data-id="99" class="imgmeme">
+                    </div>
+                    
+                </div>
+            </td> 
+
+            </tr>
+
+            <tr>
+                <td class="mydivnew">
+                    <div style="display: inline-block;" width="300px">
+                        <input type="text" placeholder="Top" class="mydeftext" id="top" value="">              
+                        <input type="text" placeholder="Bottom" class="mydeftext" id="bottom" value="">                                           
+                    </div>  
+                    <div class="extradiv">
+                        <input type="text" placeholder="text#3" data-id="2" class="mynewtext">
+                    </div>  
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="position:relative; left:230px; top:2px; ">
+                        <button id="addbtn">Add Text</button>     
+                     </div>
+       
+                </td>                                  
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <button id="generatebtn" style="position:relative; left:230px; top:2px;">
+                            Generate Meme
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        
+        </tbody>
+    </table>
+    
+
+</body>
+</html>

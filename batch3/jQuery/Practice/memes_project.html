@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes Project</title>
+    <style>
+        .main{
+            position: relative;
+            margin-top: 50px;
+        }
+        #mytable{
+            position:relative;
+            padding-top: 50px;
+        }
+        #scrollingImg{
+            width:450px;
+            height: 120px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+        #scrollingImg img{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/d471208051.js" crossorigin="anonymous"></script>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.get("https://api.imgflip.com/get_memes",function (resp) {
+                //console.log(resp.data.memes)
+                //var memes = resp.data.memes
+                //console.log(memes)
+                var memesArr = resp.data.memes;
+                var memesArrJson = JSON.stringify(memesArr);
+                localStorage.setItem("memes_images",memesArrJson)
+                var img = ""
+                if(resp.success == true) {
+                    $.each(memesArr,function(i,v) {
+                    img += `<img src="${v.url}" data-id="${i}">`
+                    //console.log(v.id)
+                    //console.log(v.name)
+                    //console.log(v.box_count)
+                    })
+                    $("#scrollingImg").html(img)
+                }
+            })
+
+            //get data
+            getData();
+            function getData() {
+                var ls = localStorage.getItem("memes_images")
+                if(ls) {
+                    var memesArr = JSON.parse(ls)
+                    var data = ""
+
+                    $.each(memesArr,function(i,v) {
+                        data +=  `<img src="${v.url}" data-id="${i}">`
+                    })
+                    $("#scrolly").html(data)
+                }
+            }
+
+            //Show content image
+            var textArr = [
+                {name:"text1", id:1, placeholder:"#text3"},
+                {name:"text2", id:2, placeholder:"#text4"},
+                {name:"text3", id:3, placeholder:"#text5"},
+            ]
+
+            $("#scrollingImg").on("click","img",function() {
+                //alert('ok')
+                $("#defaultImg").hide();
+                $("#defaultTitle").hide();
+                var index = $(this).data("id")
+                //console.log(index)
+                var ls = localStorage.getItem("memes_images")
+                if(ls){
+                    var memesArr = JSON.parse(ls)
+                    var newurl = memesArr[index].url;
+                    var newname = memesArr[index].name;
+                    //var id = memesArr[index].id;
+                    //console.log(id)
+                    var img =`<img src = "${newurl}" width="400px" height="400px" data-id="${index}"  class="newimg" style="padding-top:30px;">`
+                    var newtitle =`<h3 style="text-align: center;">Meme Name : ${newname}</h3>`
+                    $("#content").html(img) ;            
+                    $(".newTitle").html(newtitle) ; 
+                    var text_box_count = memesArr[index].box_count;
+                    //console.log(text_box_count);
+                    var data = ""
+                    $.each(textArr,function(i,v) {
+                        data += `<div class="new_box">
+                                    <input type+"text" placeholder="${v.placeholder}" data-id="${v.id}" class="mynewtextbox" size="60">
+                                </div>`
+                        if(text_box_count == (i+3)) {
+                            return false;
+                        }
+                    })
+                    if(text_box_count == 2) {
+                        $("div.new_box").remove();
+                    }
+                    else if(text_box_count == 3) {
+                        $("div.new_box").remove();
+                        $(".mytable tr td.text_box").append(data);
+                    }
+                    else if(text_box_count == 4) {
+                        $("div.new_box").remove();
+                        $(".mytable tr td.text_box").append(data);
+                    }
+                    else {
+                        $("div.new_box").remove();
+                        $(".mytable tr td.text_box").append(data);
+                    }
+                    getData();
+                }
+
+            })
+
+            //addbtn
+            $("#mytbody").on("click","#addbtn",function() {
+                //alert('ok')
+                var data = ""
+                $.each(textArr,function(i,v) {
+                    data += `<div class="new_box">
+                                <input type+"text" placeholder="#text${v.id + 2}" data-id="${v.id}" class="mynewtextbox" size="60">
+                            </div>`
+                    v.id++;
+                    //console.log(v.id);
+                    return false;
+                    if(v.id > 10) {
+                        return false;
+                    }
+                })
+                //$(".mytable tr td.new_box").append(data);
+                $(".mytable tr td.text_box").append(data);
+                getData();
+            })
+
+            //generate btn
+            $("#mytbody").on("click","#generatebtn",function() {
+                //alert('ok')
+                $("#defaultImg").hide();
+                var index = $("#content img.newimg").data("id");
+                //console.log(index);
+                var ls = localStorage.getItem("memes_images");
+                if(ls) {
+                    var memesArr = JSON.parse(ls);
+                    var id = memesArr[index].id;
+                    //console.log(id)
+                    $.post("https://api.imgflip.com/caption_image",{
+                        template_id:id,
+                        username: "ponepone" ,
+                        password: "882091meme",
+                        text0:$("#text1").val(),
+                        text1:$("#text2").val()
+                    },function (resp) {
+                        if(resp.success == true) {
+                            //console.log("hi")
+                            var img = `<img src="${resp.data.url}"  alt="" width="400px" height="400px" style="padding-top:30px;">`
+                            $("#content").html(img)
+                        }
+                    });
+                    getData();
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="main" style="background-color: rgba(161, 243, 123, 0.09);width: 1000px;height: 500px;margin-left: 150px;border-radius: 10px; box-shadow:5px 8px rgba(89, 107, 80, 0.399);">
+        <table class="mytable" border="0" cellspacing="0">
+            <tbody id="mytbody">
+                <tr>
+                    <td rowspan="3">
+                        <div id="content" style="display: inline-block;margin-right:50px;padding-left: 35px;">
+                            <img src="https://i.imgflip.com/30b1gx.jpg" id="defaultImg" alt="" width="400px" height="400px" style="padding-top:30px;">
+                        </div>
+                    </td>
+                    <td colspan="6">
+                        <div style="display: inline-block;">
+                            <div>
+                                <h3 id="defaultTitle" style="text-align: center; padding-top: 20px;">Meme Name : Drake Hotline Bling</h3>
+                            </div>
+                            <div class="newTitle">
+                            </div>
+                            <div id="scrollingImg" style=" border:1px solid gray; border-radius:3px">
+    
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text_box">
+                        <div style="display: inline-block;">
+                            <input type="text" placeholder="#text1" class="mytextbox" id="text1" value="" size="60">
+                            <br>              
+                            <input type="text" placeholder="#text2" class="mytextbox" id="text2" value="" size="60"> 
+                        </div>
+                        <div class="new_box">
+                             
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: inline-block; margin-left: 20px;">
+                            <button id="generatebtn">Generate Meme</button>
+                        </div>
+                        <div style="display: inline-block; margin-left: 200px;">
+                            <button id="addbtn">Add Text</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

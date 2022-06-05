@@ -1,0 +1,23 @@
+var text = ""
+                    $.each(textArr,function(i,v) {
+                        text += `<div class="addtext">
+                                    <input type="text" placeholder="${v.placeholder}" data-id="${v.id}" class="mynewtextbox" value="" size="60">
+                                </div>  `
+
+                        if(add_text_box == (i+3)) {
+                            return false;
+                        }
+                    })
+
+                    if(add_text_box == 2) {
+                        $("div.addtext").remove();
+                    }
+                    else if(add_text_box == 3) {
+                        $("div.addtext").remove();
+                        $(".mytable tr td.text_box").append(data);
+                    }
+                    else {
+                        $("div.addtext").remove();
+                        $(".mytable tr td.text_box").append(data);
+                    }
+                    getData();

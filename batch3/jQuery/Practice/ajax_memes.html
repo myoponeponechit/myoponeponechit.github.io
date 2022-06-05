@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax_Memes_Project</title>
+    <style>
+        #images{
+            width:600px;
+            height: 150px;
+            overflow: auto;
+            white-space: nowrap;
+            padding-top:25px;
+            margin-left: 350px;
+        }
+        #images img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.get("https://api.imgflip.com/get_memes",function (resp) {
+                //console.log(resp.data.memes)
+                var memes = resp.data.memes
+                //console.log(memes)
+                var img = ""
+                if(resp.success == true) {
+                    $.each(memes,function(i,v) {
+                    img += `<a href="" class="imgInfo" data-id="${v.id} data-name="${v.name} data-box_count="${v.box_count}"><img src="${v.url}"></a>`
+                    //console.log(v.id)
+                    //console.log(v.name)
+                    //console.log(v.box_count)
+                    })
+                    $("#images").html(img)
+                }
+            })
+
+            $("#images").on("click",".imgInfo",function() {
+                alert('ok')
+                var id = $(this).data("id");
+                console.log(id)
+            })
+            
+            $(".addbtn").on("click",function() {
+                //alert('ok')
+                add_text = `<br><input type="text" placeholder="#text3" size="50">`
+            })
+            $("#info").html(add_text)
+        })
+    </script>
+</head>
+<body>
+    <div id="images">
+        
+    </div>
+    <div id="memes_img" style="display: inline;">
+        <img src="1.png" alt="" style="margin-top: 30px;">
+    </div>
+    <div id="info" style="display: inline;">
+        <input type="text" placeholder="#text1" size="50">
+        <br>
+        <input type="text" placeholder="#text2" size="50">
+    </div>
+    <div id="btn">
+        <button type="button" class="generatebtn" style="display: inline;">Generate Memes</button>
+        <button type="button" class="addbtn" style="display: inline;">Add Text</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+</body>
+</html>

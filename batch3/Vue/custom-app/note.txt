@@ -1,0 +1,82 @@
+#Day 1
+--------
+   -node_modules => for package
+
+   -Public => Entry Point
+
+   -src => Source file
+      => components (.vue)
+         - Card Item
+
+      => views (.vue)
+         - Home, Shop, About
+
+   - .vue file
+      -> template (HTML)
+      -> script (JS)
+      -> style (CSS)
+
+   - ES6
+
+#Day 2
+--------
+   1.In Browser
+   2.CLI
+
+   1.In Browser
+   --------------
+      - home.html / about.html / contact.html
+      - link a href
+      - script src(to vue main framework )
+         - createApp
+            - data => variable define
+            - methods => functions
+            - computed => functions (returns)
+            - filtered => functions (returns)
+            - created()
+            - mounted()
+
+         - DOM
+            - reactivity
+            - rendering
+               - v-if, v-for, v-html, v-bind, v-on
+
+   2.CLI(Command Line Interface)
+   -------------------------------
+      - index.html (Entry Point)
+      - import (link each other)
+      - import main framework
+      - create only vue App
+         - views (.vue)
+         - router (route => view)
+         - component (.vue)
+         
+         - HelloWorld / Home Page / NavBar / FooterPart
+
+Home Page
+   - NavBar
+   - Slider
+   - Content
+   - ADS section
+   - FooterPart
+
+About Page
+   - NavBar
+   - About section
+   - FooterPart
+
+Contact Page
+   - NavBar
+   - Contact Form
+   - FooterPart
+
+In Vue CLI
+------------
+   - views
+      - Home Page
+      - About Page
+      - Contact Page
+
+   - components
+      - NavBar
+      - FooterPart

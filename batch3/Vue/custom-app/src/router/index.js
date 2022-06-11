@@ -32,7 +32,7 @@ const routes = [
     path: '/detail/:id',
     name: 'shopdetail',
     component: ShopDetail
-  }
+  },
 ]
 
 const router = createRouter({

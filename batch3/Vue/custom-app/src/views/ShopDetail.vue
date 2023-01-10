@@ -10,7 +10,7 @@
           <div class="card-body">
             <h5 class="card-title">$ {{product.price}}</h5>
             <p class="card-text">{{product.title}}</p>
-            <p class="card-text"><small class="text-muted">Rating : 4.1</small></p>
+            <!--<p class="card-text"><small class="text-muted">Rating : {{ product.rating.rate}}</small></p>-->
           </div>
         </div>
       </div>

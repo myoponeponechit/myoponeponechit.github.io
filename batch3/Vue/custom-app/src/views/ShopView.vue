@@ -15,45 +15,35 @@
     </div>-->
     <div class="row" v-if="products.length > 0">
       <div class="col-lg-3 col-md-4 col-sm-6 col-12" v-for="(product, index) in products" v-bind:key="index">
-        <div class="card my-3">
-          <img :src="product.image" class="card-img-top w-50 mx-auto p-3" alt="">
-          <div class="card-body">
-            <h5 class="card-title">$ {{ product.price }}</h5>
-            <p class="card-text">{{ product.title }}</p>
-            <div class="d-flex justify-content-between">
-              <router-link :to="{ name: 'shopdetail', params: { id:product.id } }">
-                <button class="btn btn-success">View</button>
-              </router-link>
-              <router-link :to="{ name: 'shopdetail', params: { id: '1' } }">
-                <button class="btn btn-warning">Add To Cart</button>
-              </router-link>
-            </div>
-          </div>
-        </div>
+          <SingleItem :product="product" parent="Shop"></SingleItem>
       </div>
     </div>
   </div>
 </template>
 <script>
+import SingleItem from '@/components/SingleItem.vue';
 const axios = require('axios').default;
 export default {
-  name: 'ShopView',
-  data() {
-    return {
-      products: [],
-    }
-  },
-  mounted() {
-    this.getAllProducts()
-  },
-  methods: {
-    getAllProducts() {
-      axios.get('https://fakestoreapi.com/products')
-        .then(response => {
-          //console.log(response.data)
-          this.products = response.data;
-        })
+    name: "ShopView",
+    data() {
+        return {
+            products: [],
+        };
+    },
+    mounted() {
+        this.getAllProducts();
+    },
+    methods: {
+        getAllProducts() {
+            axios.get("https://fakestoreapi.com/products")
+                .then(response => {
+                //console.log(response.data)
+                this.products = response.data;
+            });
+        }
+    },
+    components: {
+       SingleItem 
     }
   }
-}
 </script>

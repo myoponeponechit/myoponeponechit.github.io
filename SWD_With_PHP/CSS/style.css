@@ -2,8 +2,67 @@ h1{
     color: yellowgreen;
     text-align: center;
     text-transform: uppercase;
-    font-size: 40px;
 }
-p{
-    color: blueviolet;
+
+/* uiversal selector*/
+/* *{
+    font-size: 30px;
+    color: red;
+} */
+
+/* tag/element selector*/
+h1{
+    text-align: center;
+    color: green;
+}
+
+/*attribute selector*/
+a[title="google"]{
+    color: rgb(255, 115, 0);
+}
+a[title="facebook"]{
+    color: rgb(29, 59, 194);
+}
+
+/*id selector*/
+#idselector{
+    color: rgb(138, 107, 29);
+    font-size: 30px;
+}
+
+/*class selector*/
+.classselector{
+    color: brown;
+    letter-spacing: 10px;
+    word-spacing: 30px;
+    line-height: 50px;
+    text-transform: capitalize;
+}
+
+/* descendent selector */
+#desc a{
+    color: red;
+}
+#test li{
+    color: goldenrod;
+}
+
+/* Child Selector*/
+#child>a{
+    color: green;
+}
+
+/* pseudo selector*/
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    font-size: 20px;
+}
+a:active{
+    color: green;
+}
+a:visited{
+    color: red;
 }

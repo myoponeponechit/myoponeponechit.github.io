@@ -5,10 +5,11 @@ h1{
 }
 
 /* uiversal selector*/
-/* *{
-    font-size: 30px;
-    color: red;
-} */
+ *{
+    /* font-size: 30px;
+    color: red; */
+    margin: 0;
+} 
 
 /* tag/element selector*/
 h1{
@@ -65,4 +66,59 @@ a:active{
 }
 a:visited{
     color: red;
+}
+/*target*/
+p:target{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    color: blue;
+}
+div:target{
+    color: brown;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*Border*/
+.borderOne{
+    border: 2px solid red;
+}
+.borderTwo{
+    border-top: 2px dotted green;
+    border-bottom: 2px solid red;
+}
+.borderStyle{
+    /*All four T R B L
+    T&B L&R
+    T L&R B*/
+    border-style:dashed solid dotted double ;
+}
+.borderColor{
+    border-style: solid;
+    border-color: brown green;
+}
+.borderWidth{
+    border-style: dotted;
+    border-width: 20px;
+}
+/*Margin*/
+.marginLesson{
+    border: 1px solid red;
+    /* margin: 40px; all four */
+    /* margin: 30px 50px; T&B L&R  */
+    /* margin: 30px 50px 20px; T L&R B */
+    margin: 40px 20px 30px 20px; /*T R B L */
+}
+.marginTwo{
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    border: 1px solid red;
+}
+/*Paddig*/
+.paddingOne{
+    border: 1px solid red;
+    /* padding: 50px;All four */
+    padding-top: 50px;
 }

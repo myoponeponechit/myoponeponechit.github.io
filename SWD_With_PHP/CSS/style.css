@@ -122,3 +122,42 @@ div:target{
     /* padding: 50px;All four */
     padding-top: 50px;
 }
+/* Inline */
+.inline{
+    border: 1px solid black;
+    color: blue;
+    width: 400px;
+    display: inline-block;
+}
+.block{
+    border: 1px solid cadetblue;
+    width: 400px;
+    display: inline-block;
+}
+
+/* Float */
+.floatleft img{
+    width: 30%;
+    float: left;
+}
+.floatright img{
+    width: 30%;
+    float: right;
+}
+/* Grid */
+.griddone{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.griddone div, .gridtwo div{
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+.gridtwo{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* grid-column-gap: 10px;
+    grid-row-gap: 10px; */
+    grid-gap: 10px;
+}

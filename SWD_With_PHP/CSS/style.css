@@ -145,11 +145,11 @@ div:target{
     float: right;
 }
 /* Grid */
-.griddone{
+.griddone, .gridthree, .gridfour{
     display: grid;
     grid-template-columns: auto auto auto;
 }
-.griddone div, .gridtwo div{
+.griddone div, .gridtwo div, .gridthree div, .gridfour div{
     padding: 20px;
     text-align: center;
     color: white;
@@ -160,4 +160,59 @@ div:target{
     /* grid-column-gap: 10px;
     grid-row-gap: 10px; */
     grid-gap: 10px;
+}
+.colunmadd{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.rowadd{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+/* Position */
+.relative_parent{
+    border: 1px solid red;
+    width: 1000px;
+    height: 500px;
+}
+.relative{
+    border: 1px solid green;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+.absolute_parent{
+    border: 1px solid brown;
+    width: 1000px;
+    height: 500px;
+    position: relative;
+}
+.absolute{
+    border: 1px solid yellowgreen;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}
+
+/* font */
+
+.online{
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+
+@font-face {
+    font-family: SofiaSan;
+    src: url(Sofia/SofiaSansExtraCondensed-Regular.ttf);
+}
+
+.offline{
+    font-family: SofiaSan;
+    font-size: 30px;
+    color: blue;
 }

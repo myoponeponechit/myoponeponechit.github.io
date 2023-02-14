@@ -1,0 +1,10 @@
+@font-face {
+    font-family: Noto_Serif;
+    src: url('../Noto_Serif/NotoSerif-Regular.ttf');
+}
+
+*{
+    margin: 0;
+    font-family: Noto_Serif;
+}
+

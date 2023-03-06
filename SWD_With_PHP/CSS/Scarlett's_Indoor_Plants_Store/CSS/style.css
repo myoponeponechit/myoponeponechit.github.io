@@ -1,0 +1,497 @@
+@font-face {
+    font-family: Noto_Serif;
+    src: url('../Noto_Serif/NotoSerif-Regular.ttf');
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Noto_Serif;
+}
+
+/* nav start */
+.nav{
+    /* background-color: rgb(240, 14, 142); */
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .1);
+}
+.logo{
+    width: 170px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.navbar{
+    display: inline-block;
+}
+.nav ul{
+    float: right;
+}
+.nav ul li{
+    display: inline-block;
+    margin-top: 23px;
+    margin-right: 50px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+.nav ul li .a_link:hover{
+    color: rgb(11, 85, 23);
+    font-style: italic;
+}
+.nav ul .myli .dropdown{
+    display: grid;
+    grid-template-columns: auto auto;
+	width: 200px;
+	position: absolute;
+	background-color: rgb(11, 85, 23);
+	margin-top: 10px;
+	opacity: 0;
+	border-radius: 5px;
+}
+.nav ul .myli .dropdown a{
+	display: block;
+	text-align: left;
+    color: white;
+    font-size: 12px;
+	padding:5px 10px 5px 10px;
+}
+.nav ul .myli .dropdown a:hover{
+	/* background-color:white; 
+    color: rgb(11, 85, 23);
+	border-radius: 5px; */
+    text-decoration: underline;
+}
+.nav ul .myli:hover .dropdown{
+	opacity: 1;
+	transition: 1s;
+}
+.sign_up_btn{
+    width: 100px;
+    height: 35px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+}
+.sign_up_btn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+/*Sign In Page*/
+.main{
+    display: grid;
+    grid-template-columns: 45% 55%;
+    margin: 50px 150px 0px 150px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .3);
+}
+.form{
+    padding: 30px 80px 0px 80px;
+}
+.form h1{
+    margin-bottom: 10px;
+}
+.form form{
+    margin-top: 20px;
+}
+.center_text{
+    text-align: center;
+}
+.gray_text{
+    color: rgba(128, 128, 128, 1);
+}
+.font_size_change{
+    font-size: 13px;
+}
+.box_decoration{
+    border: none;
+    width: 100%;
+    height: 30px;
+    outline: none;
+}
+.input_label{
+    margin-top: 30px;
+    font-size: 15px;
+}
+.right_side{
+    float: right;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.right_side:hover{
+    text-decoration: underline;
+}
+.sign_in_btn{
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+}
+.sign_in_btn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+.sign_google_btn{
+    border: 1px solid rgba(128, 128, 128, 0.6);
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+.sign_google_btn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+.sign_google_btn img{
+    width: 25px;
+    height: 25px;
+    border: 1px solid red;
+}
+.btn_text{
+    padding-bottom: 30px;
+}
+.left_hr{
+    width: 30%;
+    border: 1px solid rgba(128, 128, 128, 0.6);
+    display: inline-block;
+    margin-left: 50px;
+}
+.or_text{
+    display: inline-block;
+    margin-top: 15px;
+}
+.right_hr{
+    width: 30%;
+    border: 1px solid rgba(128, 128, 128, 0.6);
+    display: inline-block;
+    margin-right: 50px;
+}
+.sign_link{
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(11, 85, 23);
+}
+.sign_link:hover{
+    text-decoration: underline;
+    font-style: italic;
+}
+.dis_text{
+    margin-top: 15px;
+}
+.main .image{
+    height: 100%;
+    width: 100%;
+    border-radius: 0px 10px 10px 0px;
+}
+/*Sign Up Page*/
+.main_bg{
+    background-image: url('../images/signInBg.jpg');
+    width: 1000px;
+    height: 750px;
+}
+.sign_up_main{
+    background-color: white;
+    position: absolute;
+    margin: 50px 0px 0px 500px;
+    border-radius: 10px;
+}
+.sign_up_main img{
+    background-attachment: fixed;
+}
+.sign_up_button{
+    width: 100%;
+    height: 35px;
+    margin-top: 15px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+}
+.sign_up_button:hover{
+    font-style: italic;
+}
+.sign_up_form{
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .4);
+    padding: 30px 60px 0px 60px;
+}
+.sign_up_form h1{
+    margin-bottom: 30px;
+}
+.left_hr1{
+    width: 30%;
+    border: 1px solid rgba(128, 128, 128, 0.6);
+    display: inline-block;
+    margin-left: 80px;
+}
+/*Detail*/
+#detail_one{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+/*Home Page*/
+.bunner_img{
+    position: relative;
+    height: 540px;
+}
+.bunner_img img{
+    height: 540px;
+}
+.overlay{
+    text-align: center;
+    color: white;
+}
+.bunner_text{
+    margin-top: 150px;
+    line-height: 50px;
+}
+.header_text{
+    font-size: 40px;
+}
+.bunner_img .overlay{
+	position: absolute;
+	background-color:rgba(0, 0, 0, 0.6);
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width:100% ;
+	height: 100%;
+    overflow: inherit;
+	transform:scale(1);
+}
+.shopnow_btn{
+    width: 100px;
+    height: 35px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 180px;
+}
+.shopnow_btn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+.first_hr{
+    width: 35px;
+    border: 2px solid rgb(219, 216, 216);
+    border-radius: 5px;
+    display: inline-block;
+}
+.sec_hr{
+    width: 35px;
+    border: 2px solid rgba(128, 128, 128, 0.8);
+    border-radius: 5px;
+    display: inline-block;
+}
+.third_hr{
+    width: 35px;
+    border: 2px solid rgba(128, 128, 128, 0.8);
+    border-radius: 5px;
+    display: inline-block;
+}
+.first_hr:hover,.sec_hr:hover,.third_hr:hover{
+    cursor: pointer;
+}
+.clear{
+    clear: both;
+}
+/*Category*/
+.title{
+    margin-left: 80px;
+    margin-top: 50px;
+    display: inline-block;
+}
+.viewmore_btn{
+    float: right;
+    margin-right: 100px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+    margin-top: 50px;
+}
+.viewmore_btn:hover{
+    font-style: italic;
+    cursor: pointer;
+}
+.first_category{
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-gap: 40px;
+    margin: 50px 80px 0px 80px;
+} 
+.second_category{
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-gap: 40px;
+    margin: 70px 80px 0px 80px;
+    margin-bottom: 50px;
+} 
+.category_img{
+    width: 100%;
+    height: 300px;
+}
+.category_a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.category_hr{
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.text{
+    position: relative;
+    margin-top: -80px;
+    margin-left: 30px;
+}
+/*Start our plants*/
+.first_row, .second_row{
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-gap: 30px;
+    margin: 50px 80px 50px 80px;
+
+}
+.sale_product{
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+.sale_product .first_img{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0px 0px;
+}
+.name_price{
+    text-align: center;
+}
+.new_plant_btn{
+    width: 50px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: rgb(11, 85, 23);
+    position: relative;
+    left: 80%;
+    bottom: 300px;
+}
+.promo_plant_btn{
+    width: 50px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: red;
+    position: relative;
+    left: 80%;
+    bottom: 300px;
+}
+.heart{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 87%;
+    bottom: 180px;
+}
+.zoon_in{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 80%;
+    bottom: 140px;
+}
+.share{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 73%;
+    bottom: 100px;
+}
+.heart_normal{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 87%;
+    bottom: 140px;
+}
+.zoon_in_normal{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 80%;
+    bottom: 100px;
+}
+.share_normal{
+    color: rgb(11, 85, 23);
+    position: relative;
+    left: 73%;
+    bottom: 60px;
+}
+.icon{
+    margin-bottom: 0px;
+}
+.sale_product .overlay{
+    position: absolute;
+	background-color:rgba(11, 85, 23, 0.3);
+	color: white;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width:100% ;
+	height: 100%;
+	overflow: hidden;
+	transform:scale(0);
+}
+.sale_product:hover .overlay{
+    width: 100%;
+	height: 100%;
+	transition: 1s;
+	cursor: pointer;
+	transform: scale(1);
+    border-radius: 10px;
+}
+.overlay .detail_btn{
+    margin-top: 180px;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    color:rgb(11, 85, 23);
+    outline: none;
+    border: none;
+}
+.overlay .detail_btn:hover{
+    cursor: pointer;
+    background-color: rgb(11, 85, 23);
+    color: white;
+}
+/*Subscribe section*/
+#joinsection{
+    background: url("../img/jointoday.jpg") no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size:cover ;
+    -o-background-size:cover;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Or Odd</title>
+</head>
+<body>
+    <script>
+        let number = prompt('Enter a number');
+        if(number % 2 == 0 && number != 0) {
+            document.write("Your number is even.");
+        }
+        else if(number % 2 == 1 && number != 0) {
+            document.write("Your number is odd.");
+        }
+        else if(number == 0) {
+            document.write('"0" is not even nor odd!');
+        }
+        else {
+            document.write("Non of these");
+        }
+    </script>
+</body>
+</html>

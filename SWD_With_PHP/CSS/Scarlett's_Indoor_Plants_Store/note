@@ -1,0 +1,60 @@
+main color - rgb(11, 85, 23)
+box-shadow - 0px 10px 20px rgb(0, 0, 0, .1)
+normal font size - 15px
+
+Sign In Page 
+margin-left, margin-right - 150px
+margin-top - 15px
+border - 1px solid rgba(128, 128, 128, 0.6)
+
+
+new product
+-------------
+<div class="sale_product">
+<div>
+    <img src="images/hp1.jpg" alt="" class="first_img">
+        <button class="new_plant_btn">New</button><br>
+        <i class="fa-regular fa-heart heart"></i>
+        <i class="fa-solid fa-magnifying-glass-plus zoon_in"></i>
+        <i class="fa-regular fa-share-from-square share"></i>
+        <p class="name_price">Cactus Plant<br>
+        $34.27</p>
+</div>
+<div class="overlay">
+    <a href="detail.html#office_plants"><button class="detail_btn">Detail</button></a>
+</div>
+</div>
+
+promo product
+--------------
+<div class="sale_product">
+    <div>
+        <img src="images/hp1.jpg" alt="" class="first_img">
+        <button class="promo_plant_btn">20%</button><br>
+        <i class="fa-regular fa-heart heart"></i>
+        <i class="fa-solid fa-magnifying-glass-plus zoon_in"></i>
+        <i class="fa-regular fa-share-from-square share"></i>
+        <p class="name_price">Cactus Plant<br>
+        $34.27 <del style="color: red;">$52.54</del></p>
+    </div>
+    <div class="overlay">
+        <a href="detail.html#office_plants"><button class="detail_btn">Detail</button></a>
+    </div>
+</div>
+
+normal product
+---------------
+
+<div class="sale_product">
+    <div>
+        <img src="images/hp1.jpg" alt="" class="first_img">
+        <i class="fa-regular fa-heart heart_normal"></i>
+        <i class="fa-solid fa-magnifying-glass-plus zoon_in_normal"></i>
+        <i class="fa-regular fa-share-from-square share_normal"></i>
+        <p class="name_price">Cactus Plant<br>
+        $34.27</p>
+    </div>
+    <div class="overlay">
+        <a href="detail.html#office_plants"><button class="detail_btn">Detail</button></a>
+    </div>
+</div>

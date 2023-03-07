@@ -240,16 +240,7 @@
     display: inline-block;
     margin-left: 80px;
 }
-/*Detail*/
-#detail_one{
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-gap: 40px;
-}
-#detail_one img{
-    width: 100%;
-    height: 300px;
-}
+
 /*Home Page*/
 .bunner_img{
     position: relative;
@@ -709,4 +700,169 @@ footer{
     padding-right: 100px;
     width: 400px;
     float: right;
+}
+.why{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 40px;
+    margin: 50px 80px 0px 80px;
+}
+.why img{
+    width: 100%;
+    height: 100%;
+}
+.why h2{
+    margin-top: 180px;
+    padding-left: 10px;
+}
+.why a{
+    padding-left: 10px;
+    color: rgb(11, 85, 23);
+}
+/*Detail*/
+#detail_one{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 50px;
+    margin: 50px 80px 0px 80px;
+}
+#detail_one img{
+    width: 100%;
+    height: 100%;
+}
+#detail_one p{
+    margin-top: 10px;
+}
+.name{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.buy_btn{
+    color: white;
+    background-color: rgb(11, 85, 23);
+    width: 200px;
+    height: 35px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.buy_btn:hover{
+    font-style: italic;
+}
+/*blog*/
+.news_first{
+    margin: 50px 50px 10px 50px;
+}
+.news_second{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 2px;
+    margin: 50px 50px 10px 50px;
+}
+.news_first img,.news_second .sec_img{
+    width: 40%;
+    float: left;
+    padding-right: 30px;
+}
+.myhr{
+    margin: 0px 50px 20px 50px;
+}
+.news_third{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.2);
+}
+.news_third a{
+    color: black;
+    padding: 10px;
+}
+.trd_img{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+.myhr2{
+    margin: 20px 100px 0px 10px;
+}
+/*Contact Page*/
+.contact_bg1{
+    height: 500px;
+    background-color: rgb(11, 85, 23);
+}
+.contact_img{
+    height: 500px;
+    width: 100%;
+}
+.contact_bg2{
+    height: 200px;
+    background-color: white;
+}
+.social_icon{
+    color: black;
+}
+.contact_us{
+    position: absolute;
+    margin-top: -630px;
+    margin-left: 160px;
+    width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.5);
+}
+.contact_us_title{
+    margin-top: 30px;
+    text-align: center;
+}
+.contact_all{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 30px;
+}
+.contact_one{
+    padding: 20px;
+}
+.contact_map{
+    position: relative;
+    margin-top: 30px;
+}
+.contact_msg{
+    position: inherit;
+    padding: 35px 20px 20px 20px;
+}
+.contact_input{
+    width: 90%;
+    height: 40px;
+    margin-top: 30px;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.206);
+    border-radius: 10px;
+}
+.cmt{
+    height: 150px;
+}
+.send_btn{
+    width: 90%;
+    margin-top: 30px;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(11, 85, 23);
+    color: white;
+    font-size: 15px;
+}
+/*About Page*/
+.about_img{
+    margin: 30px 300px 0px 300px;
+}
+.mission{
+    width: 95%;
+    height: 250px;
+    background-color: rgba(11, 85, 23, 0.8);
+    margin: 50px 30px 0px 30px;
+}
+.mission_text{
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    padding: 80px 150px 80px 150px;
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <h1>Strig</h1>
+    <script>
+        let firstName = 'Developer';
+        let lestName = "Scarlett";
+        console.log(lestName.length);
+        let fullName = firstName + ' ' + lestName;
+        console.log('My name is ' + fullName + '.');
+        console.log(`My name is ${fullName}. My nick name is ${lestName}.`);
+
+        console.log(fullName.toLocaleUpperCase());
+        console.log(fullName.toLocaleLowerCase());
+
+        let string = 'My name is Myo Myo';
+        console.log(string.substr(3,4));
+        let job = 'Web Developer';
+        console.log(job.trim);
+        console.log(string.search('is'));
+
+        let rep = 'I want to visit in Yangon';
+        console.log(rep.replace('Yangon', 'Mandalay'));
+
+        let a = '1,234,234';
+        let replace_result = a.replace(/\,/g,'');
+        console.log('I\'m Myo Pone Pone Chit');
+        console.log("I'm Myo Pone Pone Chit");
+        console.log("I'm Myo Pone Pone Chit, 5\'");
+        console.log('I\'m Myo Pone Pone Chit,5\'');
+
+
+    </script>
+</body>
+</html>

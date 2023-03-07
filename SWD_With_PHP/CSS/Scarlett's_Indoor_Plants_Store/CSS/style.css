@@ -866,3 +866,14 @@ footer{
     text-align: center;
     padding: 80px 150px 80px 150px;
 }
+.about_us{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 40px;
+    margin-top: 50px;
+    border: 1px solid red;
+}
+.about_us h3{
+    padding-left: 10px;
+    margin-bottom: 5px;
+}

@@ -924,7 +924,7 @@ footer{
     margin-left: 270px;
     margin-top: 50px;
 }
-.mission{
+#mission{
     width: 95%;
     height: 250px;
     background-color: rgba(11, 85, 23, 0.8);
@@ -936,7 +936,7 @@ footer{
     text-align: center;
     padding: 80px 150px 80px 150px;
 }
-.about_us{
+#about_us{
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 40px;
@@ -945,11 +945,11 @@ footer{
     padding-right: 30px;
     border-radius: 10px;
 }
-.about_us h3{
+#about_us h3{
     padding-left: 10px;
     margin-bottom: 5px;
 }
-.about_us .myh3{
+#about_us .myh3{
     padding-top: 20px;
 }
 /* Subscribe */

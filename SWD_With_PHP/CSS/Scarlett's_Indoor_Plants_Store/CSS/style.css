@@ -790,11 +790,15 @@ footer{
     cursor: pointer;
 }
 .social_btn{
+    border: 1px solid rgba(128, 128, 128, 0.6);
     width: 100px;
-    height: 30px;
+    height: 35px;
+    font-size: 15px;
     border-radius: 5px;
-    border: 1px solid gray;
     margin-top: 20px;
+}
+.social_btn .btn_text{
+    padding-bottom: 5px;
 }
 .social_btn:hover{
     cursor: pointer;
@@ -803,7 +807,8 @@ footer{
 .back{
     margin-left: 20px;
     width: 180px;
-    height: 30px;
+    height: 35px;
+    font-size: 15px;
     border: 1px solid rgb(11, 85, 23);
     border-radius: 5px;
     outline: none;

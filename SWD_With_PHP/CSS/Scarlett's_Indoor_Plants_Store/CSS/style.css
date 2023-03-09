@@ -52,9 +52,9 @@
 .nav ul .myli .dropdown{
     display: grid;
     grid-template-columns: auto auto;
-	width: 200px;
+	width: 250px;
 	position: absolute;
-	background-color: rgb(11, 85, 23);
+	background-color: rgba(11, 85, 23, 0.8);
 	margin-top: 10px;
 	opacity: 0;
 	border-radius: 5px;
@@ -63,7 +63,7 @@
 	display: block;
 	text-align: left;
     color: white;
-    font-size: 12px;
+    font-size: 14px;
 	padding:5px 10px 5px 10px;
 }
 .nav ul .myli .dropdown a:hover{
@@ -262,7 +262,7 @@
 }
 .bunner_img .overlay{
 	position: absolute;
-	background-color:rgba(0, 0, 0, 0.6);
+	background-color:rgba(0, 0, 0, 0.8);
 	top: 0;
 	right: 0;
 	left: 0;
@@ -273,14 +273,15 @@
 	transform:scale(1);
 }
 .shopnow_btn{
-    width: 100px;
-    height: 35px;
+    width: 120px;
+    height: 40px;
     background-color: rgb(11, 85, 23);
+    font-size: 15px;
     color: white;
     border-radius: 10px;
     border: none;
     margin-top: 20px;
-    margin-bottom: 160px;
+    margin-bottom: 140px;
 }
 .shopnow_btn:hover{
     font-style: italic;
@@ -358,7 +359,9 @@
     width: 60px;
     border: 2px solid black;
     border-radius: 5px;
-    margin-top: 10px;
+    position: relative;
+    margin-top: -14px;
+    margin-left: 13px;
 }
 .text{
     position: relative;
@@ -626,7 +629,7 @@
 /*footer*/
 footer{
     background-color: rgba(0, 0, 0, 0.831);
-    color: white;
+    color: rgba(128, 128, 128, 0.749);
     margin-top: 50px;
 }
 .footer{
@@ -642,7 +645,7 @@ footer{
 .footer_nav{
     text-decoration: none;
     display: block;
-    color: white;
+    color: rgba(128, 128, 128, 0.749);
     margin-bottom: 20px;
     padding-left: 30px;
 }
@@ -656,11 +659,12 @@ footer{
 }
 .footer_icon{
     margin-right: 10px;
+    color: rgba(128, 128, 128, 0.749);
 }
 .social{
     margin: 0px 5px;
     display: inline-block;
-    color: white;
+    color: rgba(128, 128, 128, 0.749);
 }
 .signup_me div{
     padding-top: 60px;
@@ -679,6 +683,7 @@ footer{
     border: none;
     border-radius: 5px 0px 0px 5px;
     padding-left: 80px;
+    background-color: rgba(128, 128, 128, 0.749);
 }
 .signup_text{
     padding-left: 40px;
@@ -689,7 +694,7 @@ footer{
     background-color: green;
     border: none;
     border-radius: 0px 5px 5px 0px;
-    color: white;
+    color: gray;
     display: inline-block;
     margin-left: -5px;
 }
@@ -904,10 +909,12 @@ footer{
     margin-top: 30px;
     border: none;
     background-color: rgba(128, 128, 128, 0.206);
-    border-radius: 10px;
+    border-radius: 5px;
+    outline: none;
 }
 .cmt{
     height: 150px;
+    outline: none;
 }
 .send_btn{
     width: 90%;
@@ -918,6 +925,10 @@ footer{
     background-color: rgb(11, 85, 23);
     color: white;
     font-size: 15px;
+}
+.send_btn:hover{
+    font-style: italic;
+    cursor: pointer;
 }
 /*About Page*/
 .about_img{

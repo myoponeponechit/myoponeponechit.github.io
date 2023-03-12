@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <h1>Array</h1>
+    <script>
+        let arr = [1, 2, 3];
+        console.log(arr[1]);
+        console.log(arr.length);
+        let fruits = ['Apple', 'Orange', 'Banana'];
+        console.log(fruits);
+        fruits.push('Mango');
+        console.log(fruits);
+        fruits.pop();
+        console.log(fruits);
+
+        fruits.unshift('Cherry');
+        console.log(fruits);
+        fruits.unshift('Strawberry');
+        console.log(fruits);
+
+        fruits.shift();
+        console.log(fruits);
+
+        let student = ['Ma Ma', 'Mg Mg', 'Tun Tun', 'Ko Ko'];
+        console.log(student);
+
+        student.sort();
+        console.log(student);
+
+        student.reverse();
+        console.log(student);
+
+        student.sort().reverse();
+        console.log(student);
+
+        //Array to string
+        let student_str = student.toString();
+        console.log(student_str);
+
+        // string to array
+        let student_arr = student_str.split(',');
+        console.log(student_arr);
+
+        let names = "Ma/Mg/Hla/Khin";
+        console.log(names.split('/'));
+
+        let student_names = student.concat(names.split('/'));
+        console.log(student_names);
+
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        let arr3 = [7, 8, 9];
+
+        
+    </script>
+</body>
+</html>

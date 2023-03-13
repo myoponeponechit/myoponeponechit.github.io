@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="hr_min">
+            <div><span id="hour"></span>:<span id="minute"></span></div>
+            <div id="pm_am"></div>
+        </div>
+        <div class="sec_day">
+            <div id="sec">
+            </div>
+            <div id="day">
+            </div>
+        </div>
+    </div>
+    <script>
+        function timeInterval() {
+            let today = new Date();
+        console.log(today);
+        if(today.getHours() > 12){
+            document.getElementById('pm_am').innerHTML = "PM";
+        }
+        else{
+            document.getElementById('pm_am').innerHTML = "AM";
+        }
+        let hour = today.getHours() - 12;
+        document.getElementById('hour').innerHTML = hour;
+        document.getElementById('minute').innerHTML = today.getMinutes();
+        document.getElementById('sec').innerHTML = today.getSeconds();
+        let day = today.getDay();
+        switch(day) {
+            case 1:
+                document.getElementById('day').innerHTML = "MON";
+                break;
+            case 2:
+            document.getElementById('day').innerHTML = "TUE";
+                break;
+            case 3:
+            document.getElementById('day').innerHTML = "WED";
+                break;
+            case 4:
+            document.getElementById('day').innerHTML = "THU";
+                break;
+            case 5:
+                document.getElementById('day').innerHTML = "FRI";
+                break;
+            case 6:
+                document.getElementById('day').innerHTML = "SAT";
+                break;
+            
+            default:
+                document.getElementById('day').innerHTML = "SUN";
+                break;
+        }
+        }
+        setInterval(timeInterval,100);
+    </script>
+</body>
+</html>

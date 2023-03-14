@@ -31,9 +31,89 @@
             document.getElementById('pm_am').innerHTML = "AM";
         }
         let hour = today.getHours() - 12;
-        document.getElementById('hour').innerHTML = hour;
-        document.getElementById('minute').innerHTML = today.getMinutes();
-        document.getElementById('sec').innerHTML = today.getSeconds();
+        if(today.getHours() > 12) {
+            document.getElementById('hour').innerHTML = hour;
+        }
+        else{
+            document.getElementById('hour').innerHTML = today.getHours();
+        }
+        let min = today.getMinutes();
+        if(min < 10) {
+            switch(min){
+            case 1:
+                document.getElementById('minute').innerHTML = "01";
+                break;
+            case 2:
+                document.getElementById('minute').innerHTML = "02";
+                break;
+            case 3:
+                document.getElementById('minute').innerHTML = "03";
+                break;
+            case 4:
+                document.getElementById('minute').innerHTML = "04";
+                break;
+            case 5:
+                document.getElementById('minute').innerHTML = "05";
+                break;
+            case 6:
+                document.getElementById('minute').innerHTML = "06";
+                break;
+            case 7:
+                document.getElementById('minute').innerHTML = "07";
+                break;
+            case 8:
+                document.getElementById('minute').innerHTML = "08";
+                break;
+            case 9:
+                document.getElementById('minute').innerHTML = "09";
+                break;
+            default:
+                document.getElementById('minute').innerHTML = "00";
+                break;
+            }
+        }
+        else{
+            document.getElementById('minute').innerHTML = today.getMinutes();
+        }
+        
+        let sec = today.getSeconds();
+        if(sec < 10){
+            switch(sec){
+            case 1:
+                document.getElementById('sec').innerHTML = "01";
+                break;
+            case 2:
+                document.getElementById('sec').innerHTML = "02";
+                break;
+            case 3:
+                document.getElementById('sec').innerHTML = "03";
+                break;
+            case 4:
+                document.getElementById('sec').innerHTML = "04";
+                break;
+            case 5:
+                document.getElementById('sec').innerHTML = "05";
+                break;
+            case 6:
+                document.getElementById('sec').innerHTML = "06";
+                break;
+            case 7:
+                document.getElementById('sec').innerHTML = "07";
+                break;
+            case 8:
+                document.getElementById('sec').innerHTML = "08";
+                break;
+            case 9:
+                document.getElementById('sec').innerHTML = "09";
+                break;
+            default:
+                document.getElementById('sec').innerHTML = "00";
+                break;
+            }
+        }
+        else{
+            document.getElementById('sec').innerHTML = today.getSeconds();
+        }
         let day = today.getDay();
         switch(day) {
             case 1:

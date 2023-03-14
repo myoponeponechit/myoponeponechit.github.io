@@ -6,8 +6,8 @@
 .main{
     width: 760px;
     height: 400px;
-    background-color: black;
-    color: red;
+    background-color: rgb(0, 0, 0);
+    color: cyan;
     font-family: Digital_Font;
     display: grid;
     grid-template-columns: 70% 30%;

@@ -19,9 +19,10 @@
     </form>
 
     <h1>Daily Use</h1>
-    <table border="1" cellpadding="20" cellspacing="1">
+    <table border="1" cellpadding="20" cellspacing="0">
         <thead>
             <tr>
+                <th>No</th>
                 <th>Date</th>
                 <th>Item</th>
                 <th>Price</th>
@@ -32,7 +33,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2" align="center">Total</td>
+                <td colspan="3" align="center">Total</td>
                 <td id="total"></td>
             </tr>
         </tfoot>
@@ -42,11 +43,15 @@
         var dailyUseArray = [];
         var total = 0;
         function showData() {
+
             // get data from form
             let date = document.myForm.date.value;
             let item = document.myForm.item.value;
             let price = document.myForm.price.value;
             //console.log(date,item,price,total);
+            
+            total += parseInt(price);
+            document.getElementById('total').innerHTML = total;
 
             let dailyUse = {
                 dailyUse_date : date,
@@ -69,15 +74,14 @@
                 let dailyUseObject = dailyUseArray[i];
                 html += `
                         <tr>
+                            <td>${i+1}</td>
                             <td>${dailyUseObject.dailyUse_date}</td>
                             <td>${dailyUseObject.dailyUse_item}</td>
                             <td>${dailyUseObject.dailyUse_price}</td>
                         </tr>
                         `;
-                        total += parseInt(dailyUseObject.dailyUse_price);
             }
             document.getElementById('tbody').innerHTML = html;
-            document.getElementById('total').innerHTML = total;
         }
     </script>
 </body>

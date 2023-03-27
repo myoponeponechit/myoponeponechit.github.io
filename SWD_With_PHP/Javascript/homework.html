@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Homework</title>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <form action="register.php" onsubmit="return checkValue()">
+        Name: <input type="text" id="name"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="name_error"></small><br>
+        Email: <input type="email" id="email"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="email_error"></small><br>
+        Password: <input type="password" id="password"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="pwd_error"></small><br>
+        Confirm Password: <input type="password" id="con_password"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="conpwd_error"></small><br>
+
+        <input type="submit" value="Register" id="submit">
+    </form>
+    <script>
+        function checkValue() {
+            let name = document.getElementById('name').value;
+            let name_error = document.getElementById('name_error');
+
+            let email = document.getElementById('email').value;
+            let email_error = document.getElementById('email_error');
+
+            let password = document.getElementById('password').value;
+            let password_error = document.getElementById('password_error');
+
+            let confirmPassword = document.getElementById('con_password').value;
+            let confirmPassword_error = document.getElementById('confirmPassword_error');
+
+            if(name == '' && email == '' && password == '' && confirmPassword == '')
+            {
+                    name.style.border = '1px solid red';
+                    name_error.innerText = '*Name Field Required';
+                    name_error.style.color = 'red';
+                
+                    email.style.border = '1px solid red';
+                    email_error.innerText = '*Email Field Required';
+                    email_error.style.color = 'red'; 
+                    
+                    password.style.border = '1px solid red';
+                    password_error.innerText = '*Password Field Required';
+                    password_error.style.color = 'red';    
+
+                    confirmPassword.style.border = '1px solid red';
+                    confirmPassword_error.innerText = '*Confirm Password Field Required';
+                    confirmPassword_error.style.color = 'red';   
+
+                    return false;
+            }
+            else {
+                if(name == '') {
+                    name.style.border = '1px solid red';
+                    name_error.innerText = '*Name Field Required';
+                    name_error.style.color = 'red';
+                }
+                else {
+                    name.removeAttribute('style');
+                    name_error.innerText = ''; 
+                }
+
+                if(email == '') {
+                    email.style.border = '1px solid red';
+                    email_error.innerText = '*Email Field Required';
+                    email_error.style.color = 'red';
+                }
+                else {
+                    email.removeAttribute('style');
+                    email_error.innerText = ''; 
+                }
+
+                if(password == '') {
+                    password.style.border = '1px solid red';
+                    password_error.innerText = '*Password Field Required';
+                    password_error.style.color = 'red';
+                }
+                else{
+                    password.removeAttribute('style');
+                    password_error.innerText = '';
+                }
+
+                if(confirmPassword == '') {
+                    confirmPassword.style.border = '1px solid red';
+                    confirmPassword_error.innerText = '*Confirm Password Field Required';
+                }
+                else{
+                    confirmPassword.removeAttribute('style');
+                    confirmPassword_error.innerText('');
+                }
+
+                // password == confirm password ?
+                if(name != '' && email != '' && password != '' && confirmPassword != '') {
+                    if(password != confirmPassword) {
+                        alert('Confirm password must match. Please try again!');
+                        confirmPassword.style.border = '1px solid red';
+                        confirmPassword_error.innerText = '*Confirm password must match with above password';
+
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

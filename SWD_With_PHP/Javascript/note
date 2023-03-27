@@ -1,0 +1,14 @@
+if(name == "") {
+                document.getElementById('name').style.border = '1px solid red';
+                let red = document.getElementById('red_name');
+                document.getElementById('red_name').innerHTML = `*Name Field Required`;
+                red.style.color = 'red';
+                return false;
+            }
+            else{
+                let name = document.getElementById('name');
+                name.removeAttribute('style');
+                document.getElementById('red_name').innerHTML = "";
+                
+                return true;
+            }

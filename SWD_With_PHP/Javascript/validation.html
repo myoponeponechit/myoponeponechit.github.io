@@ -12,8 +12,11 @@
         Name: <input type="text" id="name"><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="red_name"></small><br>
         Email: <input type="email" id="email"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="red_email"></small><br>
         Password: <input type="password" id="password"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="red_pwd"></small><br>
         Confirm Password: <input type="password" id="con_password"><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small id="red_con_pwd"></small><br>
 
         <input type="submit" value="Register">
     </form>
@@ -21,21 +24,91 @@
         function checkValue() {
             // alert('ok');
             let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let pwd = document.getElementById('password').value;
+            let conpwd = document.getElementById('con_password').value;
+
             console.log(name);
-            if(name == "") {
+            if(name == "" && email == "" && pwd == "" && conpwd == "") {
+                document.getElementById('name').style.border = '1px solid red';
+                let err_name = document.getElementById('red_name');
+                document.getElementById('red_name').innerHTML = `*Name Field Required`;
+                err_name.style.color = 'red';
+
+                document.getElementById('email').style.border = '1px solid red';
+                let err_email = document.getElementById('red_email');
+                document.getElementById('red_email').innerHTML = `*Email Field Required`;
+                err_email.style.color = 'red';
+
+                document.getElementById('password').style.border = '1px solid red';
+                let err_pwd = document.getElementById('red_pwd');
+                document.getElementById('red_pwd').innerHTML = `*Password Field Required`;
+                err_pwd.style.color = 'red';
+
+                document.getElementById('con_password').style.border = '1px solid red';
+                let err_con_pwd = document.getElementById('red_con_pwd');
+                document.getElementById('red_con_pwd').innerHTML = `*Confirm Password Field Required`;
+                err_con_pwd.style.color = 'red';
+
+                return false;
+            }
+            else{
+                if(name == "") {
                 document.getElementById('name').style.border = '1px solid red';
                 let red = document.getElementById('red_name');
                 document.getElementById('red_name').innerHTML = `*Name Field Required`;
                 red.style.color = 'red';
                 return false;
+                if(email == "") {
+                    document.getElementById('email').style.border = '1px solid red';
+                    let red = document.getElementById('red_email');
+                    document.getElementById('red_email').innerHTML = `*Email Field Required`;
+                    red.style.color = 'red';
+                    return false;
+                        if(pwd == "") {
+                        document.getElementById('password').style.border = '1px solid red';
+                        let red = document.getElementById('red_pwd');
+                        document.getElementById('red_pwd').innerHTML = `*Password Field Required`;
+                        red.style.color = 'red';
+                        return false;
+                            if(conpwd == "") {
+                            document.getElementById('con_password').style.border = '1px solid red';
+                            let red = document.getElementById('red_con_pwd');
+                            document.getElementById('red_con_pwd').innerHTML = `*Confirm Password Field Required`;
+                            red.style.color = 'red';
+                            return false;
+                            }
+                            else{
+                                let name = document.getElementById('con_password');
+                                name.removeAttribute('style');
+                                document.getElementById('red_con_pwd').innerHTML = "";
+                    
+                        return true;
+                        }
+                }
+                    else{
+                        let name = document.getElementById('password');
+                        name.removeAttribute('style');
+                        document.getElementById('red_pwd').innerHTML = "";
+                        
+                        return true;
+                    }
+                }
+                else{
+                    let name = document.getElementById('email');
+                    name.removeAttribute('style');
+                    document.getElementById('red_email').innerHTML = "";
+                    
+                    return true;
+                }
             }
             else{
                 let name = document.getElementById('name');
                 name.removeAttribute('style');
-                if(email == "") {
-                    
-                }
+                document.getElementById('red_name').innerHTML = "";
+                
                 return true;
+            }
             }
             
         }

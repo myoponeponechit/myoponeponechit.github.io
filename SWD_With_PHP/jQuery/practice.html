@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="addNewStudent">
+        <h3>Add new student</h3>
+        Name : <input type="text" name="name" id="name"><br>
+        Email : <input type="email" name="email" id="email"><br>
+        Phone : <input type="number" name="phone" id="phone"><br>
+        Year : <select name="year" id="year">
+            <option value="">Choose Year</option>
+            <option value="First Year">First Year</option>
+            <option value="Second Year">Second Year</option>
+            <option value="Third Year">Third Year</option>
+        </select><br>
+        <button id="add">Add Student</button>
+    </div>
+    <h3>Student List</h3>
+    <table border="1" cellpadding="20" cellspacing="0">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(funcion(){
+            function getData(){
+                let stuString = localStorage.getItem("student");
+                if(stuString){
+                    let stuArray = JSON.parse(stuString);
+                    let data = '';
+                    let j = 1;
+                    $.each(stuArray, function(i, v){
+                        data += `
+                        <tr>
+                            <td>${j++}</td>
+                            <td>${v.name}</td>
+                            <td>${v.email}</td>
+                            <td>${v.phone}</td>
+                            <td>${v.year}</td>
+                            <td><button id = "edit">Edit</button>&nbsp
+                                <button id = "delete">Delete</button></td>;
+                            </tr>`;
+                    });
+                    $('#tbody').html(data);
+                }
+            }
+
+            $('#add').click(function(){
+                let name = $('#name').val();
+                let email = $('#email').val();
+                let phone = $('#phone').val();
+                let year = $('#year').val();
+                
+                let stuObj = {
+                    stuName : name,
+                    stuEmail : email,
+                    stuPhone : phone,
+                    stuYear : year;
+                };
+
+                let stuString = localStorage.getItem("student");
+                let stuArray;
+                if(stuStrig == null) {
+                    stuArray = [];
+                }else{
+                    stuArray = JSON.parse(stuString);
+                }
+
+                stuArray.push(students_obj);
+                // console.log(stuArray);
+
+                let stuData = JSON.stringify(stuArray);
+
+                localStorage.setItem("students", stuData);
+
+                getData();
+            });
+            $('#tbody').on('click','#delete', function(){
+                let id = $(this).data('id');
+                console.log(id);
+            });
+        });
+    </script>
+</body>
+</html>

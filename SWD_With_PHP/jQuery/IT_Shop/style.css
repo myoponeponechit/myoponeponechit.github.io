@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.nav{
+    /* background-color: rgb(240, 14, 142); */
+    box-shadow: 0px 5px 10px rgb(0, 0, 0, .1);
+    height: 60px;
+}
+.navbar{
+    display: inline-block;
+}
+.navbar a{
+    text-decoration: none;
+}
+.navbar h3{
+    margin-left: 50px;
+    margin-top: 15px;
+    color: black;
+}
+.nav ul{
+    float: right;
+}
+.nav ul li{
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+.nav ul li button{
+    width: 35px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(11, 108, 211);
+    color: white;
+    border: none;
+    margin-right: 50px;
+    /* 
+    position: absolute; */
+}
+.nav ul li button:hover{
+    cursor: pointer;
+}
+.nav #count{
+    position: relative;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    margin-left: 1280px;
+    margin-top: -40px;
+}
+.nav #count p{
+    position: absolute;
+    font-size: x-small;
+    color: white;
+    /* margin-top: 0px;
+    margin-left: 3px; */
+    text-align: center;
+}
+/*nav end*/
+.laptops{
+    display: grid;
+    grid-template-columns:  auto auto auto auto;
+    grid-gap: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.phones{
+    display: grid;
+    grid-template-columns:  auto auto auto auto;
+    grid-gap: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.item{
+    border: 1px solid rgba(128, 128, 128, 0.245);
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, .1);
+    padding: 15px;
+}
+.item img{
+    width: 100%;
+    height: 250px;
+}
+.item .add_btn{
+    width: 90px;
+    height: 30px;
+    background-color: rgb(11, 108, 211);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.item .add_btn:hover{
+    cursor: pointer;
+    font-style: italic;
+}

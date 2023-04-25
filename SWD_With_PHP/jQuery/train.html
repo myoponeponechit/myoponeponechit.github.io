@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train</title>
+    <style>
+        body{
+            background-image: url('bg1.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        img{
+            margin-top: 328px;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">Start</button>
+    <img src="train1.gif" alt="train image" width="220" height="100" id="train_img">
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#start').click(function(){
+                $('#train_img').animate({left: '350px'}, 3000);
+            })
+        })
+    </script>
+</body>
+</html>

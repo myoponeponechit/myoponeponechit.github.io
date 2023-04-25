@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <script src="fontawesome/js/all.min.js"></script>
+</head>
+<body>
+    <!--nav start-->
+    <nav class="nav">
+        <div class="navbar">
+            <a href="itShop.html">
+                <h3>IT Shop</h3>
+            </a>
+        </div>
+        <ul>
+            <li><a href="itShop.html">Home</a></li>
+            <li><button>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </li>
+        </ul>
+        <div id="count">
+            <p>99+</p>
+        </div>
+    </nav>
+    <!-- nav end -->
+    <!--item start-->
+    <div class="laptops">
+        <div class="item">
+            <img src="images/laptop1.jpg" alt="laptop1">
+            <h4 class="product_name">Laptop 1</h4>
+            <p class="price">Price : 2378000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/laptop2.jpg" alt="laptop2">
+            <h4 class="product_name">Laptop 2</h4>
+            <p class="price">Price : 2054000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/laptop3.jpg" alt="laptop3">
+            <h4 class="product_name">Laptop 3</h4>
+            <p class="price">Price : 1995000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/laptop4.jpg" alt="laptop4">
+            <h4 class="product_name">Laptop 4</h4>
+            <p class="price">Price : 2100000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="phones">
+        <div class="item">
+            <img src="images/phone1.jpg" alt="phone1">
+            <h4 class="product_name">Phone1</h4>
+            <p class="price">Price : 2378000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/phone1.jpg" alt="phone2">
+            <h4 class="product_name">Phone 2</h4>
+            <p class="price">Price : 2054000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/phone1.jpg" alt="phone3">
+            <h4 class="product_name">Phone 3</h4>
+            <p class="price">Price : 1995000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/phone1.jpg" alt="phone4">
+            <h4 class="product_name">phone4</h4>
+            <p class="price">Price : 2100000 MMK</p>
+            <button class="add_btn">Add to Cart</button>
+        </div>
+    </div>
+    <!--item end-->
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#h1').click(function(){
+                $('#h1').hide();
+            })
+        });
+    </script>
+</body>
+</html>

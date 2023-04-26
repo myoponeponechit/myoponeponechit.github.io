@@ -55,11 +55,11 @@
 }
 .nav #count p{
     position: absolute;
-    font-size: x-small;
+    font-size: smaller;
     color: white;
-    /* margin-top: 0px;
-    margin-left: 3px; */
-    text-align: center;
+    margin-top: -2px;
+    margin-left: 5px; 
+    /* text-align: center; */
 }
 /*nav end*/
 .laptops{

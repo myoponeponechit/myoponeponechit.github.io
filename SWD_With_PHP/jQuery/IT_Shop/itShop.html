@@ -20,12 +20,12 @@
         <ul>
             <li><a href="itShop.html">Home</a></li>
             <li><button>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-cart-shopping icon"></i>
                 </button>
             </li>
         </ul>
         <div id="count">
-            <p>99+</p>
+            <p id="count_text"></p>
         </div>
     </nav>
     <!-- nav end -->
@@ -35,25 +35,25 @@
             <img src="images/laptop1.jpg" alt="laptop1">
             <h4 class="product_name">Laptop 1</h4>
             <p class="price">Price : 2378000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="1"  data-name="Laptop 1" data-price="2378000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/laptop2.jpg" alt="laptop2">
             <h4 class="product_name">Laptop 2</h4>
             <p class="price">Price : 2054000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="2"  data-name="Laptop 2" data-price="2054000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/laptop3.jpg" alt="laptop3">
             <h4 class="product_name">Laptop 3</h4>
             <p class="price">Price : 1995000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="3"  data-name="Laptop 3" data-price="1995000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/laptop4.jpg" alt="laptop4">
             <h4 class="product_name">Laptop 4</h4>
             <p class="price">Price : 2100000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="4"  data-name="Laptop 4" data-price="2100000">Add to Cart</button>
         </div>
     </div>
     <div class="phones">
@@ -61,34 +61,90 @@
             <img src="images/phone1.jpg" alt="phone1">
             <h4 class="product_name">Phone1</h4>
             <p class="price">Price : 2378000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="5"  data-name="Phone 1" data-price="2378000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/phone1.jpg" alt="phone2">
             <h4 class="product_name">Phone 2</h4>
             <p class="price">Price : 2054000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="6"  data-name="Phone 2" data-price="2054000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/phone1.jpg" alt="phone3">
             <h4 class="product_name">Phone 3</h4>
             <p class="price">Price : 1995000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="7"  data-name="Phone 3" data-price="1995000">Add to Cart</button>
         </div>
         <div class="item">
             <img src="images/phone1.jpg" alt="phone4">
             <h4 class="product_name">phone4</h4>
             <p class="price">Price : 2100000 MMK</p>
-            <button class="add_btn">Add to Cart</button>
+            <button class="add_btn" data-id="8"  data-name="Phone 4" data-price="2100000">Add to Cart</button>
         </div>
     </div>
     <!--item end-->
     <script src="../jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#h1').click(function(){
-                $('#h1').hide();
+            function count(){
+                    let shopString = localStorage.getItem('shops');
+                    if(shopString){
+                        let shopArray = JSON.parse(shopString);
+                        if(shopArray != 0){
+                            $('#count_text').text(shopArray.length);
+                        }
+                    }
+                    else{
+                        $('#count_text').text('0');
+                    }
+                }
+
+            count();
+
+            $('.add_btn').click(function(){
+                let item_id = $(this).data('id');
+                let item_name = $(this).data('name');
+                let item_price = $(this).data('price');
+
+                console.log(item_id,item_name,item_price);
+
+                let shop_items = {
+                    id : item_id,
+                    name : item_name,
+                    price : item_price,
+                    qty : 1
+                }
+                console.log(shop_items);
+
+                let shopString = localStorage.getItem('shops');
+                let shopArray;
+                if(shopString == null){
+                    shopArray = [];
+                }
+                else{
+                    shopArray = JSON.parse(shopString);
+                }
+
+                let status = false;
+                $.each(shopArray, function(i, v){
+                    if(item_id == v.id){
+                        status = true;
+                        v.qty++;
+                    }
+                })
+
+                if(status == false){
+                    shopArray.push(shop_items);
+                }
+
+                let shopData = JSON.stringify(shopArray);
+                localStorage.setItem('shops', shopData);
+
+                
+                count();
             })
+            
+           
         });
     </script>
 </body>

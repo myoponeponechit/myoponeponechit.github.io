@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <script src="fontawesome/js/all.min.js"></script>
+    <script src="count.js"></script>
+</head>
+<body>
+    <!--nav start-->
+    <nav class="nav">
+        <div class="navbar">
+            <a href="itShop.html">
+                <h3>IT Shop</h3>
+            </a>
+        </div>
+        <ul>
+            <li><a href="itShop.html">Home</a></li>
+            <li><a href="checkOut.html">
+                <button>
+                    <i class="fa-solid fa-cart-shopping icon"></i>
+                </button>
+            </a>
+            </li>
+        </ul>
+        <div id="count">
+            <p id="count_text"></p>
+        </div>
+    </nav>
+    <!-- nav end -->
+    <div style="padding: 50px;">
+        <table border="1" cellpadding = "20" cellspacing = "0" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Item Qty</th>
+                    <th>SubTotal</th>
+                </tr>
+            </thead>
+            <tbody id="item_body">
+
+            </tbody>
+        </table>
+        <button id="order">Order</button>
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            getData();
+            count();
+
+            function getData(){
+                let shopString = localStorage.getItem('shops');
+                if(shopString){
+                    let shopArray = JSON.parse(shopString);
+
+                    let data = '';
+                    let no = 1;
+                    let total = 0;
+
+                    $.each(shopArray,function(i,v){
+                        data += `
+                            <tr>
+                                <td>${no++}</td>
+                                <td>${v.name}</td>
+                                <td>${v.price}</td>
+                                <td><button class="min" data-index="${i}"> - </button> ${v.qty} <button class="max" data-index="${i}"> + </button></td>
+                                <td>${v.price * v.qty} MMK</td>
+                            </tr>`;
+
+                        total += v.price * v.qty;
+                    });
+
+                    data += `<tr>
+                    <td colspan="4">Total</td>
+                    <td>${total} MMK</td>
+                </tr>
+                    `
+
+                    $('#item_body').html(data);
+                }
+            }
+
+            $('#item_body').on('click', '.min', function(){
+                let index = $(this).data('index');
+                //console.log(index);
+
+                let shopString = localStorage.getItem('shops');
+                if(shopString){
+                    let shopArray = JSON.parse(shopString);
+
+                    $.each(shopArray, function(i, v){
+                        if(index == i){
+                            v.qty--;
+                            if(v.qty == 0){
+                                shopArray.splice(index, 1);
+                            }
+                        }
+                    })
+
+                    let shopData = JSON.stringify(shopArray);
+                    localStorage.setItem('shops', shopData);
+
+                    getData();
+                }
+            })
+
+            $('#item_body').on('click','.max', function(){
+                //alert('ok');
+                let index = $(this).data('index');
+                //console.log(index);
+
+                let shopString = localStorage.getItem('shops');
+                if(shopString){
+                    let shopArray = JSON.parse(shopString);
+
+                    $.each(shopArray, function(i, v){
+                        if(index == i){
+                            v.qty++;
+                        }
+                    })
+
+                    let shopData = JSON.stringify(shopArray);
+                    localStorage.setItem('shops', shopData);
+                    getData();
+                }
+            })
+
+            $('#order').click(function(){
+                let ans = confirm("Are you sure Order?");
+                if(ans){
+                    localStorage.clear();
+                    window.location.href = 'itShop.html';
+                }
+            })
+        });
+    </script>
+</body>
+</html>

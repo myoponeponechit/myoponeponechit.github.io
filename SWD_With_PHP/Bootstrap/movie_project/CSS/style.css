@@ -1,3 +1,7 @@
+*{
+    font-family: "SourceSanPro_Regular";
+}
+
 .navbar ul li a:hover{
     color: #AE8F0B !important;
     cursor: pointer;
@@ -122,6 +126,18 @@ h2{
   .slick-arrow.slick-hidden {
       display: none;
   }
+
+  .series .slider{
+    border-radius: 30px !important; 
+  }
+
+  .title{
+    color: #0f1728;
+  }
+
+  .slide_label{
+    color: white !important;
+  }
   
   /*Lastest movie*/
   .lastest_movie{
@@ -131,4 +147,24 @@ h2{
     position: absolute;
     top: 40%;
     left: 40%;
+  }
+
+
+  .about_text{
+    word-spacing: 10px;
+  }
+
+  .hr{
+    border: 2px solid #ffe100 !important;
+  }
+
+  footer{
+    background-color: #0f1728;
+    color: white;
+  }
+
+  .email{
+    height: 40px;
+    outline: none;
+    border: none;
   }

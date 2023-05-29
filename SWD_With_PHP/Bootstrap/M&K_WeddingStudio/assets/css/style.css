@@ -8,6 +8,9 @@
 .navbar ul li a{
   color: white !important;
 }
+.navbar ul li:hover{
+  font-style: italic;
+}
 .link_a{
   text-decoration: none;
   color: rgb(7, 159, 7);
@@ -224,4 +227,33 @@
 /**/
 .best_bride_link{
   margin-left: 43%;
+}
+
+.textOne{
+  margin-left: -20%;
+  margin-top: 80%;
+}
+
+.my_ul li{
+  list-style: none;
+  margin-left: -40px;
+}
+
+#experience{
+  background: url("../images/couple/cp25.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size:cover ;
+  -o-background-size:cover;
+  height: 650px;
+}
+.custom_bgcolor{
+  background-color: #0F1720;
+}
+
+.list-group li{
+  border: none;
+}
+.list-group li:hover{
+  font-style: italic;
 }

@@ -257,3 +257,38 @@
 .list-group li:hover{
   font-style: italic;
 }
+
+/*About Page*/
+#bg_image{
+  background-image: url("../images/ourteam.jpg");
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size:cover ;
+  -o-background-size:cover;
+  height: 650px;
+}
+
+.intro_text{
+  line-height: 30px;
+}
+
+.cameraman{
+  margin-top: 30%;
+}
+
+.menu_ul li:hover{
+  background-color: black;
+}
+
+#sevice_bg_image{
+  background-image: url("../images/party&other/party5.jpg");
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size:cover ;
+  -o-background-size:cover;
+  height: 650px;
+}
+
+.service_body{
+  margin-top: -30%;
+}
